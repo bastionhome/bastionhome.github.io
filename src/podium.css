@@ -44,6 +44,31 @@
 
 .omnisearch button {
   margin: 3px 3px;
+  min-height: 24px;
+  min-width: 60px;
+  background: #ddd;
+  border: 1px solid #0007;
+  border-radius: 5px;
+  box-shadow:
+    inset 2px 0px #fffc,
+    inset 0px 2px #fffc,
+    inset -2px 0px #0002,
+    inset 0px -2px #0002;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.omnisearch button:active {
+    background: #d6d6d6;
+    box-shadow:
+      inset 2px 0px #0002,
+      inset 0px 2px #0002,
+      inset -2px 0px #fff8,
+      inset 0px -2px #fff8;
+}
+
+.omnisearch button:hover {
+  background: #d6d6d6;
 }
 
 .podium p {
