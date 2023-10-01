@@ -1,25 +1,21 @@
-import {h, Fragment} from "preact"
+import {h} from "preact"
+import "./app.css"
+import { Controller } from "./Controller"
 
 export function App() {
-  return <>
-    <form class="omnisearch">
-      <input type="search" placeholder="Search" autoFocus={true} />
-      <div class="search-providers">
-        <button>MDN</button>
-        <button>NPM</button>
+  return <div class="app">
+    <div class="page">
+      <div class="splash">
+        <h1>Bastion</h1>
       </div>
-    </form>
-
-    <article>
-      <section>
-        <h2>Software Development</h2>
-        <ul>
-          <li><a href="https://npmjs.com">NPM</a></li>
-          <li><a href="https://developer.mozilla.com">MDN</a></li>
-          <li><a href="https://bun.sh">Bun</a></li>
-          <li><a href="https://deno.com">Deno</a></li>
-        </ul>
-      </section>
-    </article>
-  </>
+      <nav class="menu">
+        <a href="https://benchristel.github.io/tv">TV</a>
+        <a href="https://benchristel.github.io/recipes">Recipes</a>
+        <a href="https://github.com/benchristel/benchristel.github.io/wiki">Bliki</a>
+        <a href="https://mail.google.com">Gmail</a>
+        <a href="https://benchristel.github.io/call">Call</a>
+      </nav>
+      <Controller />
+    </div>
+  </div>
 }
