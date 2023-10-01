@@ -5,7 +5,7 @@ import { Controller } from "./Controller"
 export function App() {
   return <div class="app">
     <div class="page">
-      <div class="splash">
+      <div class="header">
         <h1>Bastion</h1>
       </div>
       <nav class="menu">
