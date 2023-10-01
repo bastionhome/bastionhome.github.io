@@ -14,6 +14,7 @@ body {
   flex-grow: 1;
   padding: 16px;
   background: linear-gradient(to bottom, #7496b7 80%, #9b98a8);;
+  font-family: 'Trebuchet MS', 'Verdana', sans-serif;
 }
 
 .page {
