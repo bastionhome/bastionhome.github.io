@@ -13,8 +13,8 @@ body {
 #app-root {
   flex-grow: 1;
   padding: 16px;
-  background: linear-gradient(to bottom, #7496b7 80%, #9b98a8);;
-  font-family: 'Trebuchet MS', 'Verdana', sans-serif;
+  background: linear-gradient(to bottom, #7496b7 80%, #9b98a8);
+  font-family: "Trebuchet MS", "Verdana", sans-serif;
   font-size: 15px;
 }
 
