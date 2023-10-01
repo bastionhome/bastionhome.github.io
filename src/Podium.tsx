@@ -1,7 +1,8 @@
 import {h, Fragment} from "preact"
+import "./podium.css"
 
-export function Controller() {
-  return <>
+export function Podium() {
+  return <div class="podium">
     <form class="omnisearch">
       <input type="search" placeholder="Search" autoFocus={true} />
       <div class="search-providers">
@@ -21,5 +22,5 @@ export function Controller() {
         </ul>
       </section>
     </article>
-  </>
+  </div>
 }

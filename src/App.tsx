@@ -1,6 +1,6 @@
 import {h} from "preact"
 import "./app.css"
-import { Controller } from "./Controller"
+import { Podium } from "./Podium"
 
 export function App() {
   return <div class="app">
@@ -15,7 +15,7 @@ export function App() {
         <a href="https://mail.google.com">Gmail</a>
         <a href="https://benchristel.github.io/call">Call</a>
       </nav>
-      <Controller />
+      <Podium />
     </div>
   </div>
 }

@@ -1,0 +1,10 @@
+.podium {
+  padding: 16px;
+}
+
+.podium h2 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 4px;
+}
