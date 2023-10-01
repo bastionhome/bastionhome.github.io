@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app-root {
+  flex-grow: 1;
+  padding: 16px;
+  background: linear-gradient(to bottom, #7496b7 80%, #9b98a8);;
+}
+
+.page {
+  background: #fffefd;
+  margin: 0 auto;
+  max-width: 900px;
+  border-radius: 8px;
+  border: 4px solid #fff;
+  box-shadow: 0 1px 8px #0008;
+}
