@@ -1,6 +1,8 @@
 import {h} from "preact"
 import "./app.css"
 import {Podium} from "./Podium"
+import { parseConfig } from "./data/config-parser"
+import { config } from "./data/config"
 
 export function App() {
   return (
@@ -10,13 +12,7 @@ export function App() {
           <h1>Bastion</h1>
         </div>
         <nav class="menu">
-          <a href="https://benchristel.github.io/tv">TV</a>
-          <a href="https://benchristel.github.io/recipes">Recipes</a>
-          <a href="https://github.com/benchristel/benchristel.github.io/wiki">
-            Bliki
-          </a>
-          <a href="https://mail.google.com">Gmail</a>
-          <a href="https://benchristel.github.io/call">Call</a>
+          {parseConfig(config).menu.map((link, i) => (<a href={link.destination} key={i}>{link.text}</a>))}
         </nav>
         <Podium />
       </div>
