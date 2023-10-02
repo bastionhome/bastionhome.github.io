@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@benchristel/taste": "^0.3.2",
+    "less": "^4.2.0",
     "preact": "^10.11.0"
   },
   "scripts": {

@@ -1,5 +1,5 @@
 import {h, Fragment} from "preact"
-import "./podium.css"
+import "./podium.less"
 
 export function Podium() {
   return (
