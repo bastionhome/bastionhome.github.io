@@ -4,6 +4,10 @@
   box-shadow: inset 0 -1px 5px #0003;
 }
 
+#test-results:not(:is(.fail, .pass)) {
+  display: none;
+}
+
 #test-results.fail {
   background: #fdd;
 }
