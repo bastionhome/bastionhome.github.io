@@ -72,4 +72,21 @@ test("parseConfig", {
     }
     expect(parseConfig(input), equals, expected)
   },
+
+  "removes spaces around link text and URLs"() {
+    const input = {
+      menu: " Foo | https://foo.com "
+    }
+    const expected = {
+      menu: [
+        {
+          text: "Foo",
+          destination: "https://foo.com"
+        }
+      ],
+      searchProviders: [],
+      directory: [],
+    }
+    expect(parseConfig(input), equals, expected)
+  },
 })
