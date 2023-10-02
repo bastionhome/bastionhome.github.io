@@ -48,4 +48,16 @@ test("parseConfig", {
     }
     expect(parseConfig(input), equals, expected)
   },
+
+  "ignores blank lines"() {
+    const input = {
+      menu: "\n"
+    }
+    const expected = {
+      menu: [],
+      searchProviders: [],
+      directory: [],
+    }
+    expect(parseConfig(input), equals, expected)
+  }
 })

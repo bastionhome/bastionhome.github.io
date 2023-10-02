@@ -12,7 +12,7 @@ function parseMenu(raw: string | undefined): Array<Parsed.Link> {
   if (!raw) {
     return []
   }
-  return raw.split("\n").map(parseLink);
+  return raw.split("\n").filter(Boolean).map(parseLink);
 }
 
 function parseLink(raw: string): Parsed.Link {
