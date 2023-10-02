@@ -27,4 +27,25 @@ test("parseConfig", {
     }
     expect(parseConfig(input), equals, expected)
   },
+
+  "parses multiple menu items"() {
+    const input = {
+      menu: "One|https://one.com\nTwo|https://two.com"
+    }
+    const expected = {
+      menu: [
+        {
+          text: "One",
+          destination: "https://one.com",
+        },
+        {
+          text: "Two",
+          destination: "https://two.com",
+        },
+      ],
+      searchProviders: [],
+      directory: [],
+    }
+    expect(parseConfig(input), equals, expected)
+  },
 })
