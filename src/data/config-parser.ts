@@ -15,8 +15,8 @@ function parseMenu(raw: string | undefined): Array<Parsed.Link> {
   return raw.split("\n").map(trim).filter(Boolean).map(parseLink);
 }
 
-function parseLink(raw: string): Parsed.Link {
-  const [text, destination] = raw.split("|").map(trim)
+export function parseLink(raw: string): Parsed.Link {
+  const [_, text, destination] = raw.split(/^([^|]*)\|(.*)$/).map(trim)
   return {
     text,
     destination,

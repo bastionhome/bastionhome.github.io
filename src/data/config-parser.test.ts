@@ -1,4 +1,4 @@
-import { parseConfig } from "./config-parser"
+import { parseConfig, parseLink } from "./config-parser"
 
 test("parseConfig", {
   "returns empty given empty"() {
@@ -88,5 +88,25 @@ test("parseConfig", {
       directory: [],
     }
     expect(parseConfig(input), equals, expected)
+  },
+})
+
+test("parseLink", {
+  "removes spaces around text and URL"() {
+    const input = " Foo | https://foo.com "
+    const expected = {
+      text: "Foo",
+      destination: "https://foo.com"
+    }
+    expect(parseLink(input), equals, expected)
+  },
+
+  "treats pipes after the first as literal"() {
+    const input = "Foo|https://foo.com#|"
+    const expected = {
+      text: "Foo",
+      destination: "https://foo.com#|"
+    }
+    expect(parseLink(input), equals, expected)
   },
 })
