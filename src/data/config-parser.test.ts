@@ -59,5 +59,17 @@ test("parseConfig", {
       directory: [],
     }
     expect(parseConfig(input), equals, expected)
-  }
+  },
+
+  "ignores all-whitespace menu items"() {
+    const input = {
+      menu: " \n\t"
+    }
+    const expected = {
+      menu: [],
+      searchProviders: [],
+      directory: [],
+    }
+    expect(parseConfig(input), equals, expected)
+  },
 })
