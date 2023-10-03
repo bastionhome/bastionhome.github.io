@@ -1,6 +1,6 @@
-import {h, Fragment} from "preact"
+import {h} from "preact"
 import "./podium.less"
-import {MachineReadable} from "./data/config-types"
+import { Category } from "./views/Category"
 
 export function Podium() {
   return (
@@ -32,7 +32,7 @@ export function Podium() {
               },
               {link: {destination: "https://bun.sh", text: "Bun"}},
               {link: {destination: "https://deno.com", text: "Deno"}},
-            ]
+            ].map(entry => entry.link)
           }
         }/>
       </article>
@@ -85,20 +85,5 @@ export function Podium() {
         </p>
       </footer>
     </div>
-  )
-}
-
-function Category(props: {category: MachineReadable.Category}) {
-  return (
-    <section>
-      <h2>{props.category.title}</h2>
-      <ul>
-        {props.category.entries.map((entry) => (
-          <li>
-            <a href={entry.link.destination}>{entry.link.text}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
   )
 }
