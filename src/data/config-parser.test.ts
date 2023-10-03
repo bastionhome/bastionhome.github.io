@@ -1,4 +1,4 @@
-import { parseConfig, parseLink } from "./config-parser"
+import {parseConfig, parseLink} from "./config-parser"
 
 test("parseConfig", {
   "returns empty given empty"() {
@@ -13,7 +13,7 @@ test("parseConfig", {
 
   "parses a menu item"() {
     const input = {
-      menu: "Foo|https://foo.com"
+      menu: "Foo|https://foo.com",
     }
     const expected = {
       menu: [
@@ -30,7 +30,7 @@ test("parseConfig", {
 
   "parses multiple menu items"() {
     const input = {
-      menu: "One|https://one.com\nTwo|https://two.com"
+      menu: "One|https://one.com\nTwo|https://two.com",
     }
     const expected = {
       menu: [
@@ -51,7 +51,7 @@ test("parseConfig", {
 
   "ignores blank lines"() {
     const input = {
-      menu: "\n"
+      menu: "\n",
     }
     const expected = {
       menu: [],
@@ -63,7 +63,7 @@ test("parseConfig", {
 
   "ignores all-whitespace menu items"() {
     const input = {
-      menu: " \n\t"
+      menu: " \n\t",
     }
     const expected = {
       menu: [],
@@ -75,14 +75,14 @@ test("parseConfig", {
 
   "removes spaces around link text and URLs"() {
     const input = {
-      menu: " Foo | https://foo.com "
+      menu: " Foo | https://foo.com ",
     }
     const expected = {
       menu: [
         {
           text: "Foo",
-          destination: "https://foo.com"
-        }
+          destination: "https://foo.com",
+        },
       ],
       searchProviders: [],
       directory: [],
@@ -96,7 +96,7 @@ test("parseLink", {
     const input = " Foo | https://foo.com "
     const expected = {
       text: "Foo",
-      destination: "https://foo.com"
+      destination: "https://foo.com",
     }
     expect(parseLink(input), equals, expected)
   },
@@ -105,7 +105,7 @@ test("parseLink", {
     const input = "Foo|https://foo.com#|"
     const expected = {
       text: "Foo",
-      destination: "https://foo.com#|"
+      destination: "https://foo.com#|",
     }
     expect(parseLink(input), equals, expected)
   },

@@ -1,4 +1,4 @@
-import { HumanWritable } from "./config-types";
+import {HumanWritable} from "./config-types"
 
 export const config: HumanWritable.Config = {
   menu: `
@@ -7,5 +7,5 @@ export const config: HumanWritable.Config = {
     Bliki   | https://github.com/benchristel/benchristel.github.io/wiki
     Gmail   | https://mail.google.com
     Call    | https://benchristel.github.io/call
-  `
+  `,
 }

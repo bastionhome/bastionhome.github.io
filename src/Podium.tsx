@@ -1,6 +1,6 @@
 import {h} from "preact"
 import "./podium.less"
-import { Category } from "./views/Category"
+import {Category} from "./views/Category"
 
 export function Podium() {
   return (
@@ -14,27 +14,27 @@ export function Podium() {
       </form>
 
       <article>
-        <Category category={
-          {
+        <Category
+          category={{
             title: "",
             entries: [
               {
                 link: {
                   destination: "https://npmjs.com",
                   text: "NPM",
-                }
+                },
               },
               {
                 link: {
                   destination: "https://developer.mozilla.com",
                   text: "MDN",
-                }
+                },
               },
               {link: {destination: "https://bun.sh", text: "Bun"}},
               {link: {destination: "https://deno.com", text: "Deno"}},
-            ].map(entry => entry.link)
-          }
-        }/>
+            ].map((entry) => entry.link),
+          }}
+        />
       </article>
       <footer>
         <hr />

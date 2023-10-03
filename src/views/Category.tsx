@@ -1,5 +1,5 @@
 import {h} from "preact"
-import { MachineReadable } from "../data/config-types"
+import {MachineReadable} from "../data/config-types"
 
 type Props = {
   category: {
