@@ -1,7 +1,7 @@
 import {render, h} from "preact"
-import {App} from "./App"
+import {Controller} from "./Controller"
 import "./test-results"
 import "./reset.css"
 import "./global-types"
 
-render(<App />, document.getElementById("preact-root")!)
+render(<Controller />, document.getElementById("preact-root")!)

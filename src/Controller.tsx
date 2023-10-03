@@ -4,7 +4,7 @@ import {Podium} from "./Podium"
 import {parseConfig} from "./data/config-parser"
 import {config} from "./data/config"
 
-export function App() {
+export function Controller() {
   return (
     <>
       <nav class="menu">
