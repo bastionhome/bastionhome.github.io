@@ -1,4 +1,4 @@
-export namespace Raw {
+export namespace HumanWritable {
   export type Config = {
     menu?: string,
     searchProviders?: string,
@@ -19,7 +19,7 @@ export namespace Raw {
   }
 }
 
-export namespace Parsed {
+export namespace MachineReadable {
   export type Config = {
     menu: Array<Link>
     searchProviders: Array<SearchProvider>

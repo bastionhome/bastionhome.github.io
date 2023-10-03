@@ -1,6 +1,6 @@
-import { Raw, Parsed } from "./config-types";
+import { HumanWritable, MachineReadable } from "./config-types";
 
-export function parseConfig(raw: Raw.Config): Parsed.Config {
+export function parseConfig(raw: HumanWritable.Config): MachineReadable.Config {
   return {
     menu: parseMenu(raw.menu),
     searchProviders: [],
@@ -8,14 +8,14 @@ export function parseConfig(raw: Raw.Config): Parsed.Config {
   }
 }
 
-function parseMenu(raw: string | undefined): Array<Parsed.Link> {
+function parseMenu(raw: string | undefined): Array<MachineReadable.Link> {
   if (!raw) {
     return []
   }
   return raw.split("\n").map(trim).filter(Boolean).map(parseLink);
 }
 
-export function parseLink(raw: string): Parsed.Link {
+export function parseLink(raw: string): MachineReadable.Link {
   const [_, text, destination] = raw.split(/^([^|]*)\|(.*)$/).map(trim)
   return {
     text,

@@ -1,6 +1,6 @@
-import { Raw } from "./config-types";
+import { HumanWritable } from "./config-types";
 
-export const config: Raw.Config = {
+export const config: HumanWritable.Config = {
   menu: `
     TV      | https://benchristel.github.io/tv
     Recipes | https://benchristel.github.io/recipes
