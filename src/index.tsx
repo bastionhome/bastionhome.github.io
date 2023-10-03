@@ -4,4 +4,4 @@ import "./test-results"
 import "./reset.css"
 import "./global-types"
 
-render(<App />, document.getElementById("app-root")!)
+render(<App />, document.getElementById("preact-root")!)

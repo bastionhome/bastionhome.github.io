@@ -10,7 +10,7 @@ body {
   flex-direction: column;
 }
 
-#app-root {
+.app {
   flex-grow: 1;
   padding: 16px;
   background: linear-gradient(to bottom, #7496b7 80%, #9b98a8);
