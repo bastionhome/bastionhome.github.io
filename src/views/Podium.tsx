@@ -1,8 +1,16 @@
 import {h} from "preact"
 import "./podium.less"
-import {Category} from "./views/Category"
+import {Category} from "./Category"
+import {MachineReadable} from "../data/config-types"
 
-export function Podium() {
+type Props = {
+  category: {
+    title: string
+    entries: Array<MachineReadable.Link>
+  }
+}
+
+export function Podium(props: Props) {
   return (
     <div class="podium">
       <form class="omnisearch">
@@ -14,27 +22,7 @@ export function Podium() {
       </form>
 
       <article>
-        <Category
-          category={{
-            title: "",
-            entries: [
-              {
-                link: {
-                  destination: "https://npmjs.com",
-                  text: "NPM",
-                },
-              },
-              {
-                link: {
-                  destination: "https://developer.mozilla.com",
-                  text: "MDN",
-                },
-              },
-              {link: {destination: "https://bun.sh", text: "Bun"}},
-              {link: {destination: "https://deno.com", text: "Deno"}},
-            ].map((entry) => entry.link),
-          }}
-        />
+        <Category category={props.category} />
       </article>
       <footer>
         <hr />

@@ -1,6 +1,6 @@
 import {h, Fragment} from "preact"
 import "./app.css"
-import {Podium} from "./Podium"
+import {Podium} from "./views/Podium"
 import {parseConfig} from "./data/config-parser"
 import {config} from "./data/config"
 
@@ -14,7 +14,27 @@ export function Controller() {
           </a>
         ))}
       </nav>
-      <Podium />
+      <Podium
+        category={{
+          title: "",
+          entries: [
+            {
+              link: {
+                destination: "https://npmjs.com",
+                text: "NPM",
+              },
+            },
+            {
+              link: {
+                destination: "https://developer.mozilla.com",
+                text: "MDN",
+              },
+            },
+            {link: {destination: "https://bun.sh", text: "Bun"}},
+            {link: {destination: "https://deno.com", text: "Deno"}},
+          ].map((entry) => entry.link),
+        }}
+      />
     </>
   )
 }
