@@ -1,5 +1,6 @@
 import {h, Fragment} from "preact"
 import "./podium.less"
+import {MachineReadable} from "./data/config-types"
 
 export function Podium() {
   return (
@@ -13,23 +14,27 @@ export function Podium() {
       </form>
 
       <article>
-        <section>
-          <h2>Software Development</h2>
-          <ul>
-            <li>
-              <a href="https://npmjs.com">NPM</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.com">MDN</a>
-            </li>
-            <li>
-              <a href="https://bun.sh">Bun</a>
-            </li>
-            <li>
-              <a href="https://deno.com">Deno</a>
-            </li>
-          </ul>
-        </section>
+        <Category category={
+          {
+            title: "",
+            entries: [
+              {
+                link: {
+                  destination: "https://npmjs.com",
+                  text: "NPM",
+                }
+              },
+              {
+                link: {
+                  destination: "https://developer.mozilla.com",
+                  text: "MDN",
+                }
+              },
+              {link: {destination: "https://bun.sh", text: "Bun"}},
+              {link: {destination: "https://deno.com", text: "Deno"}},
+            ]
+          }
+        }/>
       </article>
       <footer>
         <hr />
@@ -80,5 +85,20 @@ export function Podium() {
         </p>
       </footer>
     </div>
+  )
+}
+
+function Category(props: {category: MachineReadable.Category}) {
+  return (
+    <section>
+      <h2>{props.category.title}</h2>
+      <ul>
+        {props.category.entries.map((entry) => (
+          <li>
+            <a href={entry.link.destination}>{entry.link.text}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }

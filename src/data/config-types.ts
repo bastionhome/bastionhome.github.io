@@ -39,7 +39,7 @@ export namespace MachineReadable {
   export type Category = {
     title: string
     entries: Array<Entry>
-    subCategories: Array<LeafCategory>
+    subCategories?: Array<LeafCategory>
   }
   
   export type LeafCategory = {
@@ -49,6 +49,6 @@ export namespace MachineReadable {
   
   export type Entry = {
     link: Link
-    keywords: Array<string>
-  }  
+    keywords?: Array<string>
+  }
 }
