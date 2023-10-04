@@ -12,21 +12,17 @@ export function Category({category}: Props) {
   return (
     <section class="category">
       <h2>{title}</h2>
-      <ul>
-        {entries.map((link) => (
-          <DirectoryLink link={link} />
-        ))}
-      </ul>
+      <ul>{entries.map(directoryLink)}</ul>
       {subCategories.map(({title, entries}) => (
         <section>
           <h3>{title}</h3>
-          <ul>
-            {entries.map((link) => (
-              <DirectoryLink link={link} />
-            ))}
-          </ul>
+          <ul>{entries.map(directoryLink)}</ul>
         </section>
       ))}
     </section>
   )
+}
+
+function directoryLink(link: ViewParams.Link) {
+  return <DirectoryLink link={link} />
 }
