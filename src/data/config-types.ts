@@ -51,4 +51,8 @@ export namespace MachineReadable {
     link: Link
     keywords: Array<string>
   }
+
+  export function category({title = "", entries = [], subCategories = []}: Partial<Category>): Category {
+    return {title, entries, subCategories}
+  }
 }

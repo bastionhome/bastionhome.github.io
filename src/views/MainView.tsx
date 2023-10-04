@@ -5,9 +5,11 @@ import {ViewParams} from "./view-params"
 
 type Props = {
   config: ViewParams.Config
+  query: string,
+  onQuery: (value: string) => unknown
 }
 
-export function MainView({config}: Props) {
+export function MainView({config, query, onQuery}: Props) {
   return (
     <>
       <nav class="menu">
@@ -23,6 +25,8 @@ export function MainView({config}: Props) {
             type="search"
             placeholder="Search"
             autoFocus={true}
+            value={query}
+            onInput={(event) => onQuery(event.currentTarget.value)}
           />
           <div class="search-providers">
             <button>MDN</button>
