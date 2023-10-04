@@ -8,11 +8,23 @@
   .columns {
     column-width: 250px;
     column-gap: 2em;
-  }
 
-  section,
-  li {
-    break-inside: avoid-column;
+    section {
+      margin: 1em 0;
+    }
+
+    section,
+    li {
+      break-inside: avoid-column;
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 
   h3 {
