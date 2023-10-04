@@ -22,15 +22,33 @@ nav.menu {
 .podium {
   padding: 16px;
 
+  article {
+    margin: 2.5em 0;
+  }
+
   h2 {
     margin-top: 2em;
-    margin-bottom: 1em;
+    margin-bottom: 0.8em;
     border-bottom: 1px solid #bbb;
-    padding-bottom: 4px;
   }
 
   p {
     margin: 1em 0;
+  }
+
+  ul {
+    margin: 3px 0;
+    padding: 0 1.5em;
+    line-height: 135%;
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+
+      &:hover {
+        background: #0001;
+      }
+    }
   }
 
   .omnisearch {
