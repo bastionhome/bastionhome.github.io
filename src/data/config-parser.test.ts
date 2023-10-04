@@ -74,6 +74,35 @@ test("parseConfig().directory", {
     const expected = [] as Array<MachineReadable.Category>
     expect(parseConfig(input).directory, equals, expected)
   },
+
+  "returns a category with a single link"() {
+    const input: HumanWritable.Config = {
+      directory: [
+        {
+          title: "A Category",
+          entries: `
+            Link Text | https://example.com
+          `,
+        },
+      ],
+    }
+
+    const expected: Array<MachineReadable.Category> = [
+      {
+        title: "A Category",
+        entries: [
+          {
+            link: {
+              text: "Link Text",
+              destination: "https://example.com",
+            },
+          },
+        ],
+      },
+    ]
+
+    expect(parseConfig(input).directory, equals, expected)
+  },
 })
 
 test("parseLink", {
