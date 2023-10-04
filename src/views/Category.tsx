@@ -16,6 +16,18 @@ export function Category(props: Props) {
           </li>
         ))}
       </ul>
+      {props.category.subCategories.map((subCategory) => (
+        <section>
+          <h3>{subCategory.title}</h3>
+          <ul>
+            {subCategory.entries.map((link) => (
+              <li>
+                <a href={link.destination}>{link.text}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </section>
   )
 }

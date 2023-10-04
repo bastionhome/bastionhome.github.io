@@ -15,6 +15,12 @@ export namespace ViewParams {
   export type Category = {
     title: string
     entries: Array<Link>
+    subCategories: Array<LeafCategory>
+  }
+
+  export type LeafCategory = {
+    title: string
+    entries: Array<Link>
   }
 
   export type Link = {
@@ -31,6 +37,10 @@ export function presentConfig(
     searchProviders: config.searchProviders,
     directory: config.directory.map((category) => ({
       ...category,
+      subCategories: category.subCategories.map((subCategory) => ({
+        ...subCategory,
+        entries: subCategory.entries.map((entry) => entry.link),
+      })),
       entries: category.entries.map((entry) => entry.link),
     })),
   }
