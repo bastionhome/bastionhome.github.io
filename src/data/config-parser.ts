@@ -48,12 +48,12 @@ export function parseEntry(raw: string): MachineReadable.Entry {
 }
 
 export function parseLink(raw: string): MachineReadable.Link {
-  const [_, text, destination] = raw
-    .split(/^([^|]*)\|(.*)$/)
+  const [_, text = raw, destination = "#"] = raw
+    .split(/^([^|]*)\|\s*(\S+)/)
     .map(trim)
   return {
-    text: text ?? raw,
-    destination: destination ?? "#",
+    text,
+    destination,
   }
 }
 
