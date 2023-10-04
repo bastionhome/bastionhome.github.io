@@ -28,6 +28,16 @@ function parseCategory(
   return {
     title: raw.title,
     entries: parseEntries(raw.entries),
+    subCategories: (raw.subCategories ?? []).map(parseLeafCategory),
+  }
+}
+
+function parseLeafCategory(
+  raw: HumanWritable.LeafCategory,
+): MachineReadable.LeafCategory {
+  return {
+    title: raw.title,
+    entries: parseEntries(raw.entries),
   }
 }
 

@@ -17,6 +17,15 @@ export const config: HumanWritable.Config = {
         Bun  | https://bun.sh javascript js node
         Deno | https://deno.com javascript js node
       `,
+      subCategories: [
+        {
+          title: "web",
+          entries: `
+            NPM  | https://npmjs.com node package manager javascript
+            MDN  | https://developer.mozilla.com network html css javascript js
+          `,
+        },
+      ],
     },
     {
       title: "Food",

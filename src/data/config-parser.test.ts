@@ -90,6 +90,7 @@ test("parseConfig().directory", {
     const expected: Array<MachineReadable.Category> = [
       {
         title: "A Category",
+        subCategories: [],
         entries: [
           {
             keywords: [],
@@ -97,6 +98,37 @@ test("parseConfig().directory", {
               text: "Link Text",
               destination: "https://example.com",
             },
+          },
+        ],
+      },
+    ]
+
+    expect(parseConfig(input).directory, equals, expected)
+  },
+
+  "parses a subcategory"() {
+    const input: HumanWritable.Config = {
+      directory: [
+        {
+          title: "A Category",
+          subCategories: [
+            {
+              title: "A Subcategory",
+              entries: "",
+            },
+          ],
+        },
+      ],
+    }
+
+    const expected: MachineReadable.Config["directory"] = [
+      {
+        title: "A Category",
+        entries: [],
+        subCategories: [
+          {
+            title: "A Subcategory",
+            entries: [],
           },
         ],
       },

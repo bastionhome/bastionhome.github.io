@@ -8,7 +8,7 @@ export namespace HumanWritable {
   export type Category = {
     title: string
     keywords?: string
-    entries: string
+    entries?: string
     subCategories?: Array<LeafCategory>
   }
 
