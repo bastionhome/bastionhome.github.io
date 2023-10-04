@@ -3,7 +3,7 @@ import {MachineReadable} from "./data/config-types"
 const {category} = MachineReadable
 
 test("search", {
-  "includes a category with an entry matching the search term"() {
+  "includes a category with an entry matching the query"() {
     const query = "example"
     const categories = [
       category({
@@ -23,7 +23,7 @@ test("search", {
     expect(search(query, categories), equals, categories)
   },
 
-  "excludes a category with no entries matching the search term"() {
+  "excludes a category with no entries matching the query"() {
     const query = "asdf"
     const categories = [
       category({
@@ -43,7 +43,7 @@ test("search", {
     expect(search(query, categories), equals, [])
   },
 
-  "excludes entries that do not match the search term"() {
+  "excludes entries that do not match the query"() {
     const query = "example"
     const categories = [
       category({
@@ -85,7 +85,7 @@ test("search", {
     expect(search(query, categories), equals, expected)
   },
 
-  "excludes a subcategory with no entries matching the search term"() {
+  "excludes a subcategory with no entries matching the query"() {
     const query = "example"
     const categories = [
       category({
@@ -135,7 +135,7 @@ test("search", {
     expect(search(query, categories), equals, expected)
   },
 
-  "includes a subcategory with an entry matching the search term"() {
+  "includes a subcategory with an entry matching the query"() {
     const query = "example"
     const categories = [
       category({
@@ -159,6 +159,60 @@ test("search", {
     ]
 
     expect(search(query, categories), equals, categories)
+  },
+
+  "filters subcategory entries to those matching the query"() {
+    const query = "example"
+    const categories = [
+      category({
+        title: "One",
+        entries: [],
+        subCategories: [
+          {
+            title: "Sub",
+            entries: [
+              {
+                keywords: [],
+                link: {
+                  text: "This One Matches",
+                  destination: "https://example.com",
+                },
+              },
+              {
+                keywords: [],
+                link: {
+                  text: "This One Does Not",
+                  destination: "https://asdf.com",
+                },
+              },
+            ],
+          },
+        ],
+      }),
+    ]
+
+    const expected = [
+      category({
+        title: "One",
+        entries: [],
+        subCategories: [
+          {
+            title: "Sub",
+            entries: [
+              {
+                keywords: [],
+                link: {
+                  text: "This One Matches",
+                  destination: "https://example.com",
+                },
+              },
+            ],
+          },
+        ],
+      }),
+    ]
+
+    expect(search(query, categories), equals, expected)
   },
 })
 

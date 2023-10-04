@@ -26,9 +26,9 @@ const filterCategoryEntries = curry(
     return {
       ...category,
       entries: category.entries.filter(entryMatches(query)),
-      subCategories: category.subCategories.filter(
-        subCategoryMatches(query),
-      ),
+      subCategories: category.subCategories
+        .filter(subCategoryMatches(query))
+        .map(filterSubCategoryEntries(query)),
     }
   },
 )
@@ -36,6 +36,15 @@ const filterCategoryEntries = curry(
 const subCategoryMatches = curry(
   (query: string, subCategory: LeafCategory): boolean => {
     return subCategory.entries.some(entryMatches(query))
+  },
+)
+
+const filterSubCategoryEntries = curry(
+  (query: string, subCategory: LeafCategory): LeafCategory => {
+    return {
+      ...subCategory,
+      entries: subCategory.entries.filter(entryMatches(query)),
+    }
   },
 )
 
