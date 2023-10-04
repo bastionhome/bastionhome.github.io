@@ -6,8 +6,19 @@
   }
 
   .columns {
-    column-width: 250px;
     column-gap: 2em;
+
+    &.columns-3 {
+      column-width: 250px;
+    }
+
+    &.columns-2 {
+      column-width: 400px;
+    }
+
+    &.columns-1 {
+      column-width: 800px;
+    }
 
     section {
       margin: 1em 0;
