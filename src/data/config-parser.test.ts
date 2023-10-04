@@ -157,11 +157,11 @@ test("parseLink", {
     expect(parseLink(input), equals, expected)
   },
 
-  "puts unparseable garbage in the title, and defaults the destination to #"() {
-    const input = "asdf"
+  "parses links without an alias"() {
+    const input = "https://example.com"
     const expected = {
-      text: "asdf",
-      destination: "#",
+      text: "example.com",
+      destination: "https://example.com",
     }
     expect(parseLink(input), equals, expected)
   },
@@ -196,5 +196,17 @@ test("parseEntry", {
     const input = "Title | https://example.com\tfoo\tbar"
     const expected = ["foo", "bar"]
     expect(parseEntry(input).keywords, equals, expected)
+  },
+
+  "parses entries with keywords and no alias"() {
+    const input = "https://example.com keyword1 keyword2"
+    const expected = {
+      keywords: ["keyword1", "keyword2"],
+      link: {
+        text: "example.com",
+        destination: "https://example.com",
+      },
+    }
+    expect(parseEntry(input), equals, expected)
   },
 })

@@ -48,26 +48,37 @@ function parseEntries(
 }
 
 export function parseEntry(raw: string): MachineReadable.Entry {
-  const [, , keywordsString] = entryParts(raw)
+  const [text, destination, keywords] = entryParts(raw)
   return {
-    link: parseLink(raw),
-    keywords: keywordsString ? keywordsString.split(/\s+/) : [],
+    link: {text, destination},
+    keywords,
   }
 }
 
 export function parseLink(raw: string): MachineReadable.Link {
-  const [text = raw, destination = "#"] = entryParts(raw)
-  return {
-    text,
-    destination,
-  }
+  return parseEntry(raw).link
 }
 
-function entryParts(raw: string): Array<string> {
-  return raw
-    .split(/^([^|]*)\|\s*(\S+)/)
-    .map(trim)
-    .slice(1)
+function entryParts(raw: string): [string, string, string[]] {
+  const indexOfFirstPipe = raw.indexOf("|")
+
+  let alias: string | undefined
+  let urlAndKeywords: string
+  if (indexOfFirstPipe === -1) {
+    alias = undefined
+    urlAndKeywords = raw
+  } else {
+    alias = raw.slice(0, indexOfFirstPipe).trim()
+    urlAndKeywords = raw.slice(indexOfFirstPipe + 1).trim()
+  }
+
+  const [url, ...keywords] = urlAndKeywords.split(/\s+/)
+
+  return [alias ?? removeScheme(url), url, keywords]
+}
+
+function removeScheme(url: string): string {
+  return url.replace(/^[^:]+:\/\//, "")
 }
 
 function trimmedLines(s: string | undefined): Array<string> {
