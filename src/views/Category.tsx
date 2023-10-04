@@ -13,10 +13,10 @@ export function Category({category}: Props) {
     <section class="category">
       <h2>{title}</h2>
       <ul>{entries.map(directoryLink)}</ul>
-      {subCategories.map(({title, entries}) => (
+      {subCategories.map(({title, entries: subEntries}) => (
         <section>
           <h3>{title}</h3>
-          <ul>{entries.map(directoryLink)}</ul>
+          <ul>{subEntries.map(directoryLink)}</ul>
         </section>
       ))}
     </section>
