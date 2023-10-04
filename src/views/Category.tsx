@@ -1,11 +1,8 @@
 import {h} from "preact"
-import {MachineReadable} from "../data/config-types"
+import {ViewParams} from "./view-params"
 
 type Props = {
-  category: {
-    title: string
-    entries: Array<MachineReadable.Link>
-  }
+  category: ViewParams.Category
 }
 
 export function Category(props: Props) {
