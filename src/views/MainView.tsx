@@ -1,5 +1,5 @@
 import {h, Fragment} from "preact"
-import "./podium.less"
+import "./MainView.less"
 import {Category} from "./Category"
 import {ViewParams} from "./view-params"
 
@@ -8,7 +8,7 @@ type Props = {
   menu: Array<ViewParams.Link>
 }
 
-export function Podium(props: Props) {
+export function MainView(props: Props) {
   return (
     <>
       <nav class="menu">

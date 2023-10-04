@@ -1,11 +1,11 @@
 import {h} from "preact"
-import {Podium} from "./views/Podium"
+import {MainView} from "./views/MainView"
 import {parseConfig} from "./data/config-parser"
 import {config} from "./data/config"
 
 export function Controller() {
   return (
-    <Podium
+    <MainView
       menu={parseConfig(config).menu}
       category={{
         title: "",
