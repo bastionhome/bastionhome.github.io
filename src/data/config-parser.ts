@@ -13,10 +13,7 @@ export function parseConfig(
 function parseMenu(
   raw: string | undefined,
 ): Array<MachineReadable.Link> {
-  if (!raw) {
-    return []
-  }
-  return raw.split("\n").map(trim).filter(Boolean).map(parseLink)
+  return trimmedLines(raw).map(parseLink)
 }
 
 function parseDirectory(
@@ -37,13 +34,7 @@ function parseCategory(
 function parseEntries(
   raw: string | undefined,
 ): Array<MachineReadable.Entry> {
-  if (!raw) {
-    return []
-  }
-  return raw
-    .split("\n")
-    .map(trim)
-    .filter(Boolean)
+  return trimmedLines(raw)
     .map(parseLink)
     .map((link) => ({link}))
 }
@@ -56,6 +47,13 @@ export function parseLink(raw: string): MachineReadable.Link {
     text,
     destination,
   }
+}
+
+function trimmedLines(s: string | undefined): Array<string> {
+  if (!s) {
+    return []
+  }
+  return s.split("\n").map(trim).filter(Boolean)
 }
 
 function trim(s: string): string {
