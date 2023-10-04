@@ -34,9 +34,13 @@ function parseCategory(
 function parseEntries(
   raw: string | undefined,
 ): Array<MachineReadable.Entry> {
-  return trimmedLines(raw)
-    .map(parseLink)
-    .map((link) => ({link}))
+  return trimmedLines(raw).map(parseEntry)
+}
+
+function parseEntry(raw: string): MachineReadable.Entry {
+  return {
+    link: parseLink(raw),
+  }
 }
 
 export function parseLink(raw: string): MachineReadable.Link {
