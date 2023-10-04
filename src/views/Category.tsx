@@ -1,5 +1,6 @@
 import {h} from "preact"
 import {ViewParams} from "./view-params"
+import {DirectoryLink} from "./DirectoryLink"
 
 type Props = {
   category: ViewParams.Category
@@ -11,9 +12,7 @@ export function Category(props: Props) {
       <h2>{props.category.title}</h2>
       <ul>
         {props.category.entries.map((link) => (
-          <li>
-            <a href={link.destination}>{link.text}</a>
-          </li>
+          <DirectoryLink link={link} />
         ))}
       </ul>
       {props.category.subCategories.map((subCategory) => (
@@ -21,9 +20,7 @@ export function Category(props: Props) {
           <h3>{subCategory.title}</h3>
           <ul>
             {subCategory.entries.map((link) => (
-              <li>
-                <a href={link.destination}>{link.text}</a>
-              </li>
+              <DirectoryLink link={link} />
             ))}
           </ul>
         </section>
