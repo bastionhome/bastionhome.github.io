@@ -2,7 +2,7 @@ export namespace HumanWritable {
   export type Config = {
     menu?: string
     searchProviders?: string
-    directory?: Array<Category>
+    categories?: Array<Category>
   }
 
   export type Category = {
@@ -23,7 +23,7 @@ export namespace MachineReadable {
   export type Config = {
     menu: Array<Link>
     searchProviders: Array<SearchProvider>
-    directory: Array<Category>
+    categories: Array<Category>
   }
 
   export type Link = {

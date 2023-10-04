@@ -8,7 +8,7 @@ export const config: HumanWritable.Config = {
     Gmail   | https://mail.google.com
     Call    | https://benchristel.github.io/call
   `,
-  directory: [
+  categories: [
     {
       title: "Software Engineering",
       entries: `

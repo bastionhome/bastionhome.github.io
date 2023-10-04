@@ -4,7 +4,7 @@ export namespace ViewParams {
   export type Config = {
     menu: Array<Link>
     searchProviders: Array<SearchProvider>
-    directory: Array<Category>
+    categories: Array<Category>
   }
 
   export type SearchProvider = {
@@ -35,7 +35,7 @@ export function presentConfig(
   return {
     menu: config.menu,
     searchProviders: config.searchProviders,
-    directory: config.directory.map((category) => ({
+    categories: config.categories.map((category) => ({
       ...category,
       subCategories: category.subCategories.map((subCategory) => ({
         ...subCategory,

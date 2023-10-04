@@ -6,7 +6,7 @@ export function parseConfig(
   return {
     menu: parseMenu(raw.menu),
     searchProviders: [],
-    directory: parseDirectory(raw.directory),
+    categories: parseCategories(raw.categories),
   }
 }
 
@@ -16,7 +16,7 @@ function parseMenu(
   return trimmedLines(raw).map(parseLink)
 }
 
-function parseDirectory(
+function parseCategories(
   raw: Array<HumanWritable.Category> | undefined,
 ): Array<MachineReadable.Category> {
   return (raw ?? []).map(parseCategory)

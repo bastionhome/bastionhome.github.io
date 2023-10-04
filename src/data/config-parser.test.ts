@@ -68,16 +68,16 @@ test("parseConfig().menu", {
   },
 })
 
-test("parseConfig().directory", {
+test("parseConfig().categories", {
   "returns empty given empty"() {
     const input: HumanWritable.Config = {}
     const expected = [] as Array<MachineReadable.Category>
-    expect(parseConfig(input).directory, equals, expected)
+    expect(parseConfig(input).categories, equals, expected)
   },
 
   "returns a category with a single link"() {
     const input: HumanWritable.Config = {
-      directory: [
+      categories: [
         {
           title: "A Category",
           entries: `
@@ -103,12 +103,12 @@ test("parseConfig().directory", {
       },
     ]
 
-    expect(parseConfig(input).directory, equals, expected)
+    expect(parseConfig(input).categories, equals, expected)
   },
 
   "parses a subcategory"() {
     const input: HumanWritable.Config = {
-      directory: [
+      categories: [
         {
           title: "A Category",
           subCategories: [
@@ -121,7 +121,7 @@ test("parseConfig().directory", {
       ],
     }
 
-    const expected: MachineReadable.Config["directory"] = [
+    const expected: MachineReadable.Config["categories"] = [
       {
         title: "A Category",
         entries: [],
@@ -134,7 +134,7 @@ test("parseConfig().directory", {
       },
     ]
 
-    expect(parseConfig(input).directory, equals, expected)
+    expect(parseConfig(input).categories, equals, expected)
   },
 })
 
