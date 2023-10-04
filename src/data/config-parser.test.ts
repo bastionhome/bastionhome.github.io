@@ -92,6 +92,7 @@ test("parseConfig().directory", {
         title: "A Category",
         entries: [
           {
+            keywords: [],
             link: {
               text: "Link Text",
               destination: "https://example.com",
@@ -135,14 +136,33 @@ test("parseLink", {
 })
 
 test("parseEntry", {
-  "parses a link"() {
+  "parses a link with no keywords"() {
     const input = "Title | https://example.com"
     const expected = {
+      keywords: [],
       link: {
         text: "Title",
         destination: "https://example.com",
       },
     }
     expect(parseEntry(input), equals, expected)
+  },
+
+  "parses keywords"() {
+    const input = "Title | https://example.com foo bar baz"
+    const expected = ["foo", "bar", "baz"]
+    expect(parseEntry(input).keywords, equals, expected)
+  },
+
+  "allows multiple spaces between keywords"() {
+    const input = "Title | https://example.com  foo  bar"
+    const expected = ["foo", "bar"]
+    expect(parseEntry(input).keywords, equals, expected)
+  },
+
+  "allows tabs between keywords"() {
+    const input = "Title | https://example.com\tfoo\tbar"
+    const expected = ["foo", "bar"]
+    expect(parseEntry(input).keywords, equals, expected)
   },
 })

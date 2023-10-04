@@ -38,8 +38,12 @@ function parseEntries(
 }
 
 export function parseEntry(raw: string): MachineReadable.Entry {
+  const [_, __, ___, keywordsString] = raw
+    .split(/^([^|]*)\|\s*(\S+)/)
+    .map(trim)
   return {
     link: parseLink(raw),
+    keywords: keywordsString ? keywordsString.split(/\s+/) : [],
   }
 }
 
