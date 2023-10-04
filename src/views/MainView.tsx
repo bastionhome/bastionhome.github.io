@@ -4,15 +4,14 @@ import {Category} from "./Category"
 import {ViewParams} from "./view-params"
 
 type Props = {
-  category: ViewParams.Category
-  menu: Array<ViewParams.Link>
+  config: ViewParams.Config
 }
 
-export function MainView(props: Props) {
+export function MainView({config}: Props) {
   return (
     <>
       <nav class="menu">
-        {props.menu.map((link, i) => (
+        {config.menu.map((link, i) => (
           <a href={link.destination} key={i}>
             {link.text}
           </a>
@@ -32,7 +31,7 @@ export function MainView(props: Props) {
         </form>
 
         <article>
-          <Category category={props.category} />
+          <Category category={config.directory[0]} />
         </article>
         <footer>
           <hr />
