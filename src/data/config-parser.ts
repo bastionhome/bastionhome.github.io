@@ -38,9 +38,7 @@ function parseEntries(
 }
 
 export function parseEntry(raw: string): MachineReadable.Entry {
-  const [_, __, ___, keywordsString] = raw
-    .split(/^([^|]*)\|\s*(\S+)/)
-    .map(trim)
+  const [, , keywordsString] = entryParts(raw)
   return {
     link: parseLink(raw),
     keywords: keywordsString ? keywordsString.split(/\s+/) : [],
@@ -48,13 +46,18 @@ export function parseEntry(raw: string): MachineReadable.Entry {
 }
 
 export function parseLink(raw: string): MachineReadable.Link {
-  const [_, text = raw, destination = "#"] = raw
-    .split(/^([^|]*)\|\s*(\S+)/)
-    .map(trim)
+  const [text = raw, destination = "#"] = entryParts(raw)
   return {
     text,
     destination,
   }
+}
+
+function entryParts(raw: string): Array<string> {
+  return raw
+    .split(/^([^|]*)\|\s*(\S+)/)
+    .map(trim)
+    .slice(1)
 }
 
 function trimmedLines(s: string | undefined): Array<string> {
