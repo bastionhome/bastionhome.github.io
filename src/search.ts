@@ -19,12 +19,14 @@ const categoryMatches = curry(
 
 export const entryMatches = curry(
   (query: string, entry: Entry): boolean =>
-    words(query).every((word) =>
-      entry.link.destination.includes(word),
+    lowercaseWords(query).every(
+      (word) =>
+        entry.link.destination.toLowerCase().includes(word) ||
+        entry.link.text.toLowerCase().includes(word),
     ),
   "entryMatches",
 )
 
-function words(s: string): string[] {
-  return s.split(/\s+/)
+function lowercaseWords(s: string): string[] {
+  return s.toLowerCase().split(/\s+/)
 }

@@ -64,14 +64,44 @@ test("search", {
       expect(entryMatches(query, testEntry), is, false)
     },
 
+    "is false when no part of the entry contains a query word surrounded by whitespace"() {
+      const query = "  blah  "
+      expect(entryMatches(query, testEntry), is, false)
+    },
+
     "is true when the entry's URL contains the query"() {
       const query = "exam"
+      expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is true when the entry's URL contains the query, case-insensitively"() {
+      const query = "EXAM"
       expect(entryMatches(query, testEntry), is, true)
     },
 
     "is true when the entry's URL contains all words of the query"() {
       const query = "ample exam"
       expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is true when the entry's title contains the query"() {
+      const query = "Link"
+      expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is true when the entry's title contains the query, case-insensitively"() {
+      const query = "LINK"
+      expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is true when some query words appear in the title and some in the URL"() {
+      const query = "example link"
+      expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is false when the query contains a word that does not appear in the entry"() {
+      const query = "example link jfkdaljfskjf"
+      expect(entryMatches(query, testEntry), is, false)
     },
   })
 }
