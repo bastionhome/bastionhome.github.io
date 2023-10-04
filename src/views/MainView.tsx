@@ -31,7 +31,9 @@ export function MainView({config}: Props) {
         </form>
 
         <article>
-          <Category category={config.directory[0]} />
+          {config.directory.map((category) => (
+            <Category category={category} />
+          ))}
         </article>
         <footer>
           <hr />

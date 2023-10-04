@@ -18,5 +18,12 @@ export const config: HumanWritable.Config = {
         Deno | https://deno.com javascript js node
       `,
     },
+    {
+      title: "Food",
+      entries: `
+        Monterey Bay Herb Co. | https://herbco.com
+        maangchi.com | https://maangchi.com
+      `,
+    },
   ],
 }
