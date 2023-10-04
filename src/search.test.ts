@@ -42,6 +42,124 @@ test("search", {
 
     expect(search(query, categories), equals, [])
   },
+
+  "excludes entries that do not match the search term"() {
+    const query = "example"
+    const categories = [
+      category({
+        title: "One",
+        entries: [
+          {
+            keywords: [],
+            link: {
+              text: "Example",
+              destination: "https://example.com",
+            },
+          },
+          {
+            keywords: [],
+            link: {
+              text: "foo",
+              destination: "https://foo.com",
+            },
+          },
+        ],
+      }),
+    ]
+
+    const expected = [
+      category({
+        title: "One",
+        entries: [
+          {
+            keywords: [],
+            link: {
+              text: "Example",
+              destination: "https://example.com",
+            },
+          },
+        ],
+      }),
+    ]
+
+    expect(search(query, categories), equals, expected)
+  },
+
+  "excludes a subcategory with no entries matching the search term"() {
+    const query = "example"
+    const categories = [
+      category({
+        title: "One",
+        entries: [
+          {
+            keywords: [],
+            link: {
+              text: "Example",
+              destination: "https://example.com",
+            },
+          },
+        ],
+        subCategories: [
+          {
+            title: "Does Not Match",
+            entries: [
+              {
+                keywords: [],
+                link: {
+                  text: "Foo",
+                  destination: "https://foo.com",
+                },
+              },
+            ],
+          },
+        ],
+      }),
+    ]
+
+    const expected = [
+      category({
+        title: "One",
+        entries: [
+          {
+            keywords: [],
+            link: {
+              text: "Example",
+              destination: "https://example.com",
+            },
+          },
+        ],
+        subCategories: [],
+      }),
+    ]
+
+    expect(search(query, categories), equals, expected)
+  },
+
+  "includes a subcategory with an entry matching the search term"() {
+    const query = "example"
+    const categories = [
+      category({
+        title: "One",
+        entries: [],
+        subCategories: [
+          {
+            title: "Sub",
+            entries: [
+              {
+                keywords: [],
+                link: {
+                  text: "Example",
+                  destination: "https://example.com",
+                },
+              },
+            ],
+          },
+        ],
+      }),
+    ]
+
+    expect(search(query, categories), equals, categories)
+  },
 })
 
 {

@@ -12,10 +12,7 @@ export const config: HumanWritable.Config = {
     {
       title: "Software Engineering",
       entries: `
-        NPM  | https://npmjs.com node package manager javascript
-        MDN  | https://developer.mozilla.com network html css javascript js
-        Bun  | https://bun.sh javascript js node
-        Deno | https://deno.com javascript js node
+        The Art of Unix Programming | http://www.catb.org/esr/writings/taoup/html/
       `,
       subCategories: [
         {
@@ -23,6 +20,8 @@ export const config: HumanWritable.Config = {
           entries: `
             NPM  | https://npmjs.com node package manager javascript
             MDN  | https://developer.mozilla.com network html css javascript js
+            Bun  | https://bun.sh javascript js node
+            Deno | https://deno.com javascript js node
           `,
         },
       ],
