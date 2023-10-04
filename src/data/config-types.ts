@@ -49,6 +49,6 @@ export namespace MachineReadable {
 
   export type Entry = {
     link: Link
-    keywords?: Array<string>
+    keywords: Array<string>
   }
 }
