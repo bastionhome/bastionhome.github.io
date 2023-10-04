@@ -1,4 +1,4 @@
-import {parseConfig, parseLink} from "./config-parser"
+import {parseConfig, parseEntry, parseLink} from "./config-parser"
 import {HumanWritable, MachineReadable} from "./config-types"
 
 test("parseConfig().menu", {
@@ -131,5 +131,18 @@ test("parseLink", {
       destination: "#",
     }
     expect(parseLink(input), equals, expected)
+  },
+})
+
+test("parseEntry", {
+  "parses a link"() {
+    const input = "Title | https://example.com"
+    const expected = {
+      link: {
+        text: "Title",
+        destination: "https://example.com",
+      },
+    }
+    expect(parseEntry(input), equals, expected)
   },
 })

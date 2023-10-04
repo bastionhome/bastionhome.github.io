@@ -37,7 +37,7 @@ function parseEntries(
   return trimmedLines(raw).map(parseEntry)
 }
 
-function parseEntry(raw: string): MachineReadable.Entry {
+export function parseEntry(raw: string): MachineReadable.Entry {
   return {
     link: parseLink(raw),
   }
