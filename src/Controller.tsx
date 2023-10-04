@@ -4,13 +4,13 @@ import {parseConfig} from "./data/config-parser"
 import {config} from "./data/config"
 
 export function Controller() {
-  const category = parseConfig(config).directory[0]
+  const parsedConfig = parseConfig(config)
   return (
     <MainView
-      menu={parseConfig(config).menu}
+      menu={parsedConfig.menu}
       category={{
-        title: category.title,
-        entries: category.entries.map((e) => e.link),
+        title: parsedConfig.directory[0].title,
+        entries: parsedConfig.directory[0].entries.map((e) => e.link),
       }}
     />
   )
