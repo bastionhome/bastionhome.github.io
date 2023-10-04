@@ -12,13 +12,17 @@ export function Category({category}: Props) {
   return (
     <section class="category">
       <h2>{title}</h2>
-      <ul>{entries.map(directoryLink)}</ul>
-      {subCategories.map(({title, entries: subEntries}) => (
+      <div class="columns">
         <section>
-          <h3>{title}</h3>
-          <ul>{subEntries.map(directoryLink)}</ul>
+          <ul>{entries.map(directoryLink)}</ul>
         </section>
-      ))}
+        {subCategories.map(({title, entries: subEntries}) => (
+          <section>
+            <h3>{title}</h3>
+            <ul>{subEntries.map(directoryLink)}</ul>
+          </section>
+        ))}
+      </div>
     </section>
   )
 }
