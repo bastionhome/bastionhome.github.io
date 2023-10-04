@@ -7,20 +7,21 @@ type Props = {
   category: ViewParams.Category
 }
 
-export function Category(props: Props) {
+export function Category({category}: Props) {
+  const {title, entries, subCategories} = category
   return (
     <section class="category">
-      <h2>{props.category.title}</h2>
+      <h2>{title}</h2>
       <ul>
-        {props.category.entries.map((link) => (
+        {entries.map((link) => (
           <DirectoryLink link={link} />
         ))}
       </ul>
-      {props.category.subCategories.map((subCategory) => (
+      {subCategories.map(({title, entries}) => (
         <section>
-          <h3>{subCategory.title}</h3>
+          <h3>{title}</h3>
           <ul>
-            {subCategory.entries.map((link) => (
+            {entries.map((link) => (
               <DirectoryLink link={link} />
             ))}
           </ul>
