@@ -48,8 +48,8 @@ export function parseLink(raw: string): MachineReadable.Link {
     .split(/^([^|]*)\|(.*)$/)
     .map(trim)
   return {
-    text,
-    destination,
+    text: text ?? raw,
+    destination: destination ?? "#",
   }
 }
 

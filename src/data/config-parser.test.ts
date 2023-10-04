@@ -123,4 +123,13 @@ test("parseLink", {
     }
     expect(parseLink(input), equals, expected)
   },
+
+  "puts unparseable garbage in the title, and defaults the destination to #"() {
+    const input = "asdf"
+    const expected = {
+      text: "asdf",
+      destination: "#",
+    }
+    expect(parseLink(input), equals, expected)
+  },
 })
