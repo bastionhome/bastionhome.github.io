@@ -1,5 +1,5 @@
-import { search } from "./search"
-import { MachineReadable } from "./data/config-types"
+import {entryMatches, search} from "./search"
+import {MachineReadable} from "./data/config-types"
 const {category} = MachineReadable
 
 test("search", {
@@ -14,10 +14,10 @@ test("search", {
             link: {
               text: "Example",
               destination: "https://example.com",
-            }
-          }
+            },
+          },
         ],
-      })
+      }),
     ]
 
     expect(search(query, categories), equals, categories)
@@ -34,12 +34,44 @@ test("search", {
             link: {
               text: "Example",
               destination: "https://example.com",
-            }
-          }
+            },
+          },
         ],
-      })
+      }),
     ]
 
     expect(search(query, categories), equals, [])
   },
 })
+
+{
+  const testEntry = {
+    keywords: ["one", "two"],
+    link: {
+      text: "Link Text",
+      destination: "https://example.com",
+    },
+  }
+
+  test("entryMatches", {
+    "is true when the query is empty"() {
+      const query = ""
+      expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is false when no part of the entry contains the query"() {
+      const query = "blah"
+      expect(entryMatches(query, testEntry), is, false)
+    },
+
+    "is true when the entry's URL contains the query"() {
+      const query = "exam"
+      expect(entryMatches(query, testEntry), is, true)
+    },
+
+    "is true when the entry's URL contains all words of the query"() {
+      const query = "ample exam"
+      expect(entryMatches(query, testEntry), is, true)
+    },
+  })
+}

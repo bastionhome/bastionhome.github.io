@@ -17,8 +17,14 @@ const categoryMatches = curry(
   "categoryMatches",
 )
 
-const entryMatches = curry(
+export const entryMatches = curry(
   (query: string, entry: Entry): boolean =>
-    entry.link.destination.includes(query),
+    words(query).every((word) =>
+      entry.link.destination.includes(word),
+    ),
   "entryMatches",
 )
+
+function words(s: string): string[] {
+  return s.split(/\s+/)
+}
