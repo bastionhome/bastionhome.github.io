@@ -4,7 +4,7 @@ import {MainView} from "./views/MainView"
 import {parseConfig} from "./data/config-parser"
 import {config} from "./data/config"
 import {presentConfig} from "./views/view-params"
-import { search } from "./search"
+import {search} from "./search"
 
 export function Controller() {
   const [query, setQuery] = useState("")
@@ -12,8 +12,17 @@ export function Controller() {
 
   const searchedConfig = {
     ...parsedConfig,
-    categories: search(query, parsedConfig.categories)
+    categories: search(query, parsedConfig.categories),
   }
 
-  return <MainView config={presentConfig(searchedConfig)} query={query} onQuery={setQuery} />
+  return (
+    <MainView
+      config={presentConfig(searchedConfig)}
+      query={query}
+      onQuery={setQuery}
+      onSearchSubmitted={() =>
+        window.open("https://duckduckgo.com?q=" + query, "_self")
+      }
+    />
+  )
 }

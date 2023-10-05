@@ -222,7 +222,6 @@ export const config: HumanWritable.Config = {
         {
           title: "General / Reference",
           entries: `
-            https://www.unitstatistics.com
             https://lparchive.org
           `,
         },

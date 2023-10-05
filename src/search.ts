@@ -14,6 +14,10 @@ export function search(
     .map(filterCategoryEntries(query))
 }
 
+export function webSearchUrl(query: string): string {
+  return "https://duckduckgo.com?q=" + encodeURIComponent(query)
+}
+
 const categoryMatches = curry(
   (query: string, category: Category): boolean =>
     category.entries.some(entryMatches(query)) ||

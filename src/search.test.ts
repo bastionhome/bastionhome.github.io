@@ -1,4 +1,4 @@
-import {entryMatches, search} from "./search"
+import {entryMatches, search, webSearchUrl} from "./search"
 import {MachineReadable} from "./data/config-types"
 const {category} = MachineReadable
 
@@ -213,6 +213,22 @@ test("search", {
     ]
 
     expect(search(query, categories), equals, expected)
+  },
+})
+
+test("webSearchUrl", {
+  "constructs a DuckDuckGo URL"() {
+    const query = "hello"
+    expect(webSearchUrl(query), is, "https://duckduckgo.com?q=hello")
+  },
+
+  "escapes spaces"() {
+    const query = "hello world"
+    expect(
+      webSearchUrl(query),
+      is,
+      "https://duckduckgo.com?q=hello%20world",
+    )
   },
 })
 

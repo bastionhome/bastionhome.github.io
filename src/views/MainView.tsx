@@ -5,11 +5,13 @@ import {ViewParams} from "./view-params"
 
 type Props = {
   config: ViewParams.Config
-  query: string,
+  query: string
   onQuery: (value: string) => unknown
+  onSearchSubmitted: () => unknown
 }
 
-export function MainView({config, query, onQuery}: Props) {
+export function MainView(props: Props) {
+  const {config, query, onQuery, onSearchSubmitted} = props
   return (
     <>
       <nav class="menu">
@@ -20,19 +22,24 @@ export function MainView({config, query, onQuery}: Props) {
         ))}
       </nav>
       <div class="podium">
-        <form class="omnisearch">
+        <div class="omnisearch">
           <input
             type="search"
             placeholder="Search"
             autoFocus={true}
             value={query}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                onSearchSubmitted()
+              }
+            }}
             onInput={(event) => onQuery(event.currentTarget.value)}
           />
           <div class="search-providers">
             <button>MDN</button>
             <button>NPM</button>
           </div>
-        </form>
+        </div>
 
         <article>
           {config.categories.map((category) => (

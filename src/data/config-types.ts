@@ -52,7 +52,11 @@ export namespace MachineReadable {
     keywords: Array<string>
   }
 
-  export function category({title = "", entries = [], subCategories = []}: Partial<Category>): Category {
+  export function category({
+    title = "",
+    entries = [],
+    subCategories = [],
+  }: Partial<Category>): Category {
     return {title, entries, subCategories}
   }
 }
