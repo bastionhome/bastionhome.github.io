@@ -53,7 +53,10 @@ export const entryMatches = curry(
     lowercaseWords(query).every(
       (word) =>
         entry.link.destination.toLowerCase().includes(word) ||
-        entry.link.text.toLowerCase().includes(word),
+        entry.link.text.toLowerCase().includes(word) ||
+        entry.keywords.some((keyword) =>
+          keyword.toLowerCase().includes(word),
+        ),
     ),
   "entryMatches",
 )

@@ -275,5 +275,10 @@ test("search", {
       const query = "example link jfkdaljfskjf"
       expect(entryMatches(query, testEntry), is, false)
     },
+
+    "is true when the query contains part of any keyword"() {
+      const query = "one"
+      expect(entryMatches(query, testEntry), is, true)
+    },
   })
 }
