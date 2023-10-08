@@ -1,3 +1,4 @@
+import {curry} from "@benchristel/taste"
 import {HumanWritable, MachineReadable} from "../config-types"
 import {parseEntry} from "./parse-entry"
 import {parseKeywords} from "./parse-keywords"
@@ -28,31 +29,41 @@ function parseCategories(
 function parseCategory(
   raw: HumanWritable.Category,
 ): MachineReadable.Category {
+  const keywords = parseKeywords(raw.keywords)
   return {
     title: raw.title,
-    entries: parseEntries(raw.entries, parseKeywords(raw.keywords)),
-    subCategories: (raw.subCategories ?? []).map(parseLeafCategory),
+    entries: parseEntries(raw.entries, keywords),
+    subCategories: (raw.subCategories ?? []).map(
+      parseLeafCategory(keywords),
+    ),
   }
 }
 
-function parseLeafCategory(
-  raw: HumanWritable.LeafCategory,
-): MachineReadable.LeafCategory {
-  return {
-    title: raw.title,
-    entries: parseEntries(raw.entries, parseKeywords(raw.keywords)),
-  }
-}
+const parseLeafCategory = curry(
+  (
+    inheritedKeywords: string[],
+    raw: HumanWritable.LeafCategory,
+  ): MachineReadable.LeafCategory => {
+    return {
+      title: raw.title,
+      entries: parseEntries(
+        raw.entries,
+        inheritedKeywords.concat(parseKeywords(raw.keywords)),
+      ),
+    }
+  },
+  "parseLeafCategory",
+)
 
 function parseEntries(
   raw: string | undefined,
-  keywords: string[] = [],
+  inheritedKeywords: string[] = [],
 ): Array<MachineReadable.Entry> {
   return trimmedLines(raw)
     .map(parseEntry)
     .map((entry) => ({
       ...entry,
-      keywords: entry.keywords.concat(keywords),
+      keywords: entry.keywords.concat(inheritedKeywords),
     }))
 }
 
