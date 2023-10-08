@@ -1,4 +1,5 @@
 import {HumanWritable, MachineReadable} from "../config-types"
+import {parseEntry} from "./parse-entry"
 
 export function parseConfig(
   raw: HumanWritable.Config,
@@ -53,14 +54,6 @@ function parseEntries(
     }))
 }
 
-export function parseEntry(raw: string): MachineReadable.Entry {
-  const [text, destination, keywords] = entryParts(raw)
-  return {
-    link: {text, destination},
-    keywords,
-  }
-}
-
 export function parseLink(raw: string): MachineReadable.Link {
   return parseEntry(raw).link
 }
@@ -71,28 +64,6 @@ export function parseKeywords(raw: string | undefined): string[] {
     return []
   }
   return trimmed.split(/\s+/)
-}
-
-function entryParts(raw: string): [string, string, string[]] {
-  const indexOfFirstPipe = raw.indexOf("|")
-
-  let alias: string | undefined
-  let urlAndKeywords: string
-  if (indexOfFirstPipe === -1) {
-    alias = undefined
-    urlAndKeywords = raw
-  } else {
-    alias = raw.slice(0, indexOfFirstPipe).trim()
-    urlAndKeywords = raw.slice(indexOfFirstPipe + 1).trim()
-  }
-
-  const [url, ...keywords] = urlAndKeywords.split(/\s+/)
-
-  return [alias ?? removeScheme(url), url, keywords]
-}
-
-function removeScheme(url: string): string {
-  return url.replace(/^[^:]+:\/\//, "")
 }
 
 function trimmedLines(s: string | undefined): Array<string> {
