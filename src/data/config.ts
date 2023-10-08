@@ -96,6 +96,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Korean",
+          keywords: "korean",
           entries: `
             https://maangchi.com
             https://koreanbapsang.com
@@ -104,6 +105,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Indian",
+          keywords: "indian",
           entries: `
             https://indianhealthyrecipes.com
             https://www.vegrecipesofindia.com
@@ -111,6 +113,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Turkish",
+          keywords: "turkish",
           entries: `
             Ozlem's Turkish Table | https://ozlemsturkishtable.com/
             Binnur's Turkish Cookbook | https://binnurturkishcookbook.blogspot.com/
@@ -177,7 +180,7 @@ export const config: HumanWritable.Config = {
         {
           title: "Catalogs",
           entries: `
-            https://protondb.com
+            https://protondb.com linux wine
             https://store.steampowered.com
             https://steamdb.info
             https://kongregate.com
@@ -191,6 +194,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Minecraft",
+          keywords: "minecraft",
           entries: `
             https://minecraft.fandom.com
             https://curseforge.com
