@@ -30,7 +30,7 @@ function parseCategory(
 ): MachineReadable.Category {
   return {
     title: raw.title,
-    entries: parseEntries(raw.entries),
+    entries: parseEntries(raw.entries, parseKeywords(raw.keywords)),
     subCategories: (raw.subCategories ?? []).map(parseLeafCategory),
   }
 }

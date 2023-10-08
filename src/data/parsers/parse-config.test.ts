@@ -133,6 +133,34 @@ test("parseConfig().categories", {
     expect(parseConfig(input).categories, equals, expected)
   },
 
+  "distributes keywords from a category to each entry"() {
+    const input: HumanWritable.Config = {
+      categories: [
+        {
+          title: "",
+          keywords: "one two",
+          entries: `
+            https://foo.com
+            https://example.com
+          `,
+        },
+      ],
+    }
+
+    const expected: Array<MachineReadable.Entry> = [
+      {
+        link: which(isAnything),
+        keywords: ["one", "two"],
+      },
+      {
+        link: which(isAnything),
+        keywords: ["one", "two"],
+      },
+    ]
+
+    expect(parseConfig(input).categories[0].entries, equals, expected)
+  },
+
   "distributes keywords from a subcategory to each entry"() {
     const input: HumanWritable.Config = {
       categories: [
