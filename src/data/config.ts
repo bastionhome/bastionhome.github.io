@@ -234,6 +234,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Linux and Computer Hardware",
+      keywords: "linux",
       entries: `
         https://frame.work
         https://community.frame.work
