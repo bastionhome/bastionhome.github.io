@@ -69,6 +69,35 @@ test("parseConfig().menu", {
   },
 })
 
+test("parseConfig().searchProviders", {
+  "returns empty given empty"() {
+    const input: HumanWritable.Config = {
+      searchProviders: "",
+    }
+
+    const expected: MachineReadable.SearchProvider[] = []
+
+    expect(parseConfig(input).searchProviders, equals, expected)
+  },
+
+  "parses one search provider"() {
+    const input: HumanWritable.Config = {
+      searchProviders: `
+        DuckDuckGo | https://duckduckgo.com?q=%s
+      `,
+    }
+
+    const expected: MachineReadable.SearchProvider[] = [
+      {
+        name: "DuckDuckGo",
+        searchUrlFormat: "https://duckduckgo.com?q=%s",
+      },
+    ]
+
+    expect(parseConfig(input).searchProviders, equals, expected)
+  },
+})
+
 test("parseConfig().categories", {
   "returns empty given empty"() {
     const input: HumanWritable.Config = {}

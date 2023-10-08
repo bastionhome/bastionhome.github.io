@@ -7,7 +7,7 @@ type Props = {
   config: ViewParams.Config
   query: string
   onQuery: (value: string) => unknown
-  onSearchSubmitted: () => unknown
+  onSearchSubmitted: (providerIndex: number) => unknown
 }
 
 export function MainView(props: Props) {
@@ -30,14 +30,17 @@ export function MainView(props: Props) {
             value={query}
             onKeyPress={(event) => {
               if (event.key === "Enter") {
-                onSearchSubmitted()
+                onSearchSubmitted(0)
               }
             }}
             onInput={(event) => onQuery(event.currentTarget.value)}
           />
           <div class="search-providers">
-            <button>MDN</button>
-            <button>NPM</button>
+            {config.searchProviders.map((provider, i) => (
+              <button key={i} onClick={() => onSearchSubmitted(i)}>
+                {provider.name}
+              </button>
+            ))}
           </div>
         </div>
 

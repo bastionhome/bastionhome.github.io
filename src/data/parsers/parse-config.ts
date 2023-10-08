@@ -9,7 +9,7 @@ export function parseConfig(
 ): MachineReadable.Config {
   return {
     menu: parseMenu(raw.menu),
-    searchProviders: [],
+    searchProviders: parseSearchProviders(raw.searchProviders),
     categories: parseCategories(raw.categories),
   }
 }
@@ -18,6 +18,17 @@ function parseMenu(
   raw: string | undefined,
 ): Array<MachineReadable.Link> {
   return trimmedLines(raw).map(parseLink)
+}
+
+function parseSearchProviders(
+  raw: string | undefined,
+): Array<MachineReadable.SearchProvider> {
+  return trimmedLines(raw)
+    .map(parseLink)
+    .map((link) => ({
+      name: link.text,
+      searchUrlFormat: link.destination,
+    }))
 }
 
 function parseCategories(

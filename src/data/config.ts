@@ -8,6 +8,10 @@ export const config: HumanWritable.Config = {
     Gmail   | https://mail.google.com
     Call    | https://benchristel.github.io/call
   `,
+  searchProviders: `
+    DuckDuckGo | https://duckduckgo.com?q=%s
+    YouTube | https://youtube.com/results?search_query=%s
+  `,
   categories: [
     {
       title: "Software Development",

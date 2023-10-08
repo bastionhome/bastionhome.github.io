@@ -20,8 +20,13 @@ export function Controller() {
       config={presentConfig(searchedConfig)}
       query={query}
       onQuery={setQuery}
-      onSearchSubmitted={() =>
-        window.open("https://duckduckgo.com?q=" + query, "_self")
+      onSearchSubmitted={(providerIndex) =>
+        window.open(
+          parsedConfig.searchProviders[
+            providerIndex
+          ].searchUrlFormat.replace("%s", query),
+          "_self",
+        )
       }
     />
   )
