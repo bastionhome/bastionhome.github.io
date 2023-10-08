@@ -63,6 +63,7 @@ export const config: HumanWritable.Config = {
             mdsite | https://benchristel.github.io/mdsite
             https://caniuse.com
             https://bun.sh javascript js node
+            Build Your Own React | https://pomb.us/build-your-own-react/ didact
           `,
         },
         {
@@ -259,9 +260,10 @@ export const config: HumanWritable.Config = {
       `,
     },
     {
-      title: "Educational",
+      title: "Learning",
       entries: `
         https://khanacademy.org
+        Leitner system (Wikipedia) | https://en.wikipedia.org/wiki/Leitner_system srs flashcards
       `,
     },
     {
