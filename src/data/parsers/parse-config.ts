@@ -1,5 +1,6 @@
 import {HumanWritable, MachineReadable} from "../config-types"
 import {parseEntry} from "./parse-entry"
+import {parseKeywords} from "./parse-keywords"
 import {parseLink} from "./parse-link"
 
 export function parseConfig(
@@ -53,14 +54,6 @@ function parseEntries(
       ...entry,
       keywords: entry.keywords.concat(keywords),
     }))
-}
-
-export function parseKeywords(raw: string | undefined): string[] {
-  const trimmed = raw?.trim()
-  if (!trimmed) {
-    return []
-  }
-  return trimmed.split(/\s+/)
 }
 
 function trimmedLines(s: string | undefined): Array<string> {
