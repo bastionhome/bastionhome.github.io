@@ -4,8 +4,8 @@ import {
   parseEntry,
   parseKeywords,
   parseLink,
-} from "./config-parser"
-import {HumanWritable, MachineReadable} from "./config-types"
+} from "./parse-config"
+import {HumanWritable, MachineReadable} from "../config-types"
 
 test("parseConfig().menu", {
   "returns empty given empty"() {

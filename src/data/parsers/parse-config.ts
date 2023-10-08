@@ -1,4 +1,4 @@
-import {HumanWritable, MachineReadable} from "./config-types"
+import {HumanWritable, MachineReadable} from "../config-types"
 
 export function parseConfig(
   raw: HumanWritable.Config,
