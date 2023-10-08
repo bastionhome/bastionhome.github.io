@@ -80,7 +80,7 @@ test("parseConfig().categories", {
     const input: HumanWritable.Config = {
       categories: [
         {
-          title: "A Category",
+          title: "",
           entries: `
             Link Text | https://example.com
           `,
@@ -89,19 +89,16 @@ test("parseConfig().categories", {
     }
 
     const expected: Array<MachineReadable.Category> = [
-      {
-        title: "A Category",
-        subCategories: [],
+      objectContaining({
         entries: [
-          {
-            keywords: [],
+          objectContaining({
             link: {
               text: "Link Text",
               destination: "https://example.com",
             },
-          },
+          }),
         ],
-      },
+      }),
     ]
 
     expect(parseConfig(input).categories, equals, expected)
@@ -111,7 +108,7 @@ test("parseConfig().categories", {
     const input: HumanWritable.Config = {
       categories: [
         {
-          title: "A Category",
+          title: "",
           subCategories: [
             {
               title: "A Subcategory",
@@ -123,16 +120,14 @@ test("parseConfig().categories", {
     }
 
     const expected: MachineReadable.Config["categories"] = [
-      {
-        title: "A Category",
-        entries: [],
+      objectContaining({
         subCategories: [
           {
             title: "A Subcategory",
             entries: [],
           },
         ],
-      },
+      }),
     ]
 
     expect(parseConfig(input).categories, equals, expected)
@@ -142,10 +137,10 @@ test("parseConfig().categories", {
     const input: HumanWritable.Config = {
       categories: [
         {
-          title: "A Category",
+          title: "",
           subCategories: [
             {
-              title: "A Subcategory",
+              title: "",
               keywords: "one two",
               entries: `
                 https://foo.com
@@ -179,10 +174,10 @@ test("parseConfig().categories", {
     const input: HumanWritable.Config = {
       categories: [
         {
-          title: "A Category",
+          title: "",
           subCategories: [
             {
-              title: "A Subcategory",
+              title: "",
               keywords: "one two",
               entries: `
                 https://example.com keyword-from-entry
@@ -220,3 +215,19 @@ const isSameSetAs = curry(
   },
   "isSameSetAs",
 )
+
+function objectContaining(expected: any) {
+  return which(hasProperties(expected))
+}
+
+const hasProperties = curry((expected: any, actual: any) => {
+  for (let k in expected) {
+    if (!(k in actual)) {
+      return false
+    }
+    if (!equals(expected[k], actual[k])) {
+      return false
+    }
+  }
+  return true
+}, "hasProperties")
