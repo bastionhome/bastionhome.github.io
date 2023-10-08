@@ -1,4 +1,10 @@
-import {parseConfig, parseEntry, parseLink} from "./config-parser"
+import {curry} from "@benchristel/taste"
+import {
+  parseConfig,
+  parseEntry,
+  parseKeywords,
+  parseLink,
+} from "./config-parser"
 import {HumanWritable, MachineReadable} from "./config-types"
 
 test("parseConfig().menu", {
@@ -136,6 +142,77 @@ test("parseConfig().categories", {
 
     expect(parseConfig(input).categories, equals, expected)
   },
+
+  "distributes keywords from a subcategory to each entry"() {
+    const input: HumanWritable.Config = {
+      categories: [
+        {
+          title: "A Category",
+          subCategories: [
+            {
+              title: "A Subcategory",
+              keywords: "one two",
+              entries: `
+                https://foo.com
+                https://example.com
+              `,
+            },
+          ],
+        },
+      ],
+    }
+
+    const expected: Array<MachineReadable.Entry> = [
+      {
+        link: which(isAnything),
+        keywords: ["one", "two"],
+      },
+      {
+        link: which(isAnything),
+        keywords: ["one", "two"],
+      },
+    ]
+
+    expect(
+      parseConfig(input).categories[0].subCategories[0].entries,
+      equals,
+      expected,
+    )
+  },
+
+  "preserves each entry's own keywords when adding category keywords"() {
+    const input: HumanWritable.Config = {
+      categories: [
+        {
+          title: "A Category",
+          subCategories: [
+            {
+              title: "A Subcategory",
+              keywords: "one two",
+              entries: `
+                https://example.com keyword-from-entry
+              `,
+            },
+          ],
+        },
+      ],
+    }
+
+    const expected: Array<MachineReadable.Entry> = [
+      {
+        link: which(isAnything),
+        keywords: which(
+          isSameSetAs(["one", "two", "keyword-from-entry"]),
+        ),
+      },
+    ]
+
+    expect(
+      parseConfig(input).categories[0].subCategories[0].entries,
+      equals,
+      expected,
+    )
+  },
 })
 
 test("parseLink", {
@@ -210,3 +287,52 @@ test("parseEntry", {
     expect(parseEntry(input), equals, expected)
   },
 })
+
+test("parseKeywords", {
+  "parses empty string to empty array"() {
+    expect(parseKeywords(""), equals, [])
+  },
+
+  "parses undefined to empty array"() {
+    expect(parseKeywords(undefined), equals, [])
+  },
+
+  "parses whitespace to empty array"() {
+    expect(parseKeywords(" "), equals, [])
+  },
+
+  "parses one keyword"() {
+    expect(parseKeywords("word"), equals, ["word"])
+  },
+
+  "parses multiple keywords"() {
+    expect(parseKeywords("three word set"), equals, [
+      "three",
+      "word",
+      "set",
+    ])
+  },
+
+  "ignores extra space between words"() {
+    expect(parseKeywords("one   two"), equals, ["one", "two"])
+  },
+
+  "ignores space around the keywords"() {
+    expect(parseKeywords("  word  "), equals, ["word"])
+  },
+
+  "treats all whitespace the same"() {
+    expect(parseKeywords("foo\n\tbar"), equals, ["foo", "bar"])
+  },
+})
+
+function isAnything() {
+  return true
+}
+
+const isSameSetAs = curry(
+  (expected: Array<any>, actual: Array<any>) => {
+    return equals(new Set(expected), new Set(actual))
+  },
+  "isSameSetAs",
+)

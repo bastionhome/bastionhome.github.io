@@ -37,14 +37,20 @@ function parseLeafCategory(
 ): MachineReadable.LeafCategory {
   return {
     title: raw.title,
-    entries: parseEntries(raw.entries),
+    entries: parseEntries(raw.entries, parseKeywords(raw.keywords)),
   }
 }
 
 function parseEntries(
   raw: string | undefined,
+  keywords: string[] = [],
 ): Array<MachineReadable.Entry> {
-  return trimmedLines(raw).map(parseEntry)
+  return trimmedLines(raw)
+    .map(parseEntry)
+    .map((entry) => ({
+      ...entry,
+      keywords: entry.keywords.concat(keywords),
+    }))
 }
 
 export function parseEntry(raw: string): MachineReadable.Entry {
@@ -57,6 +63,14 @@ export function parseEntry(raw: string): MachineReadable.Entry {
 
 export function parseLink(raw: string): MachineReadable.Link {
   return parseEntry(raw).link
+}
+
+export function parseKeywords(raw: string | undefined): string[] {
+  const trimmed = raw?.trim()
+  if (!trimmed) {
+    return []
+  }
+  return trimmed.split(/\s+/)
 }
 
 function entryParts(raw: string): [string, string, string[]] {
