@@ -1,5 +1,6 @@
 import {HumanWritable, MachineReadable} from "../config-types"
 import {parseEntry} from "./parse-entry"
+import {parseLink} from "./parse-link"
 
 export function parseConfig(
   raw: HumanWritable.Config,
@@ -52,10 +53,6 @@ function parseEntries(
       ...entry,
       keywords: entry.keywords.concat(keywords),
     }))
-}
-
-export function parseLink(raw: string): MachineReadable.Link {
-  return parseEntry(raw).link
 }
 
 export function parseKeywords(raw: string | undefined): string[] {
