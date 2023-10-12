@@ -341,6 +341,7 @@ export const config: HumanWritable.Config = {
         https://ipachart.com
         https://internationalphoneticalphabet.org
         https://dedalvs.com
+        http://www.hungarianreference.com
       `,
     },
 
