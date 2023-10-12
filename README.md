@@ -1,6 +1,16 @@
-# Preact, TypeScript, Vite, @benchristel/taste
+## Bastion
 
-## Setup
+An information repository. Made and curated by humans, for humans.
+
+![screenshot of the Bastion website](src/assets/screenshot.png)
+
+Hosted at https://bastionhome.github.io
+
+## Development
+
+This repo was generated from the template [benchristel/preact-typescript-vite-taste](https://github.com/benchristel/preact-typescript-vite-taste).
+
+### Setup
 
 1. Click the "Use this template" button on GitHub
 2. Clone the created repo
@@ -8,8 +18,6 @@
    ```
    yarn setup
    ```
-
-## Development
 
 ### Server and Typechecker
 
@@ -38,7 +46,7 @@ http://localhost:5173
 - To format all files, run `yarn format`.
 - The code formatter is `prettier`. See `.prettierrc` for configuration.
 
-## Building for production
+### Building for production
 
 ```
 yarn build
@@ -53,8 +61,6 @@ serve dist
 
 You can then view your app at http://localhost:3000.
 
-## Deploying
+### Deploying
 
 To deploy your built app to GitHub Pages, go to the `Pages` tab of your repo's settings and change the directory to deploy from to `/docs`.
-
-This template repo is deployed at https://benchristel.github.io/preact-typescript-vite-taste/
