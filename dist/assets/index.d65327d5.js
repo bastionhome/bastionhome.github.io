@@ -181,6 +181,7 @@
         https://ipachart.com
         https://internationalphoneticalphabet.org
         https://dedalvs.com
+        http://www.hungarianreference.com
       `},{title:"Academia",entries:`
         https://researchgate.net
         https://psyarxiv.com
