@@ -12,12 +12,11 @@ This repo was generated from the template [benchristel/preact-typescript-vite-ta
 
 ### Setup
 
-1. Click the "Use this template" button on GitHub
-2. Clone the created repo
-3. Run the one-time setup script to install dependencies and git hooks:
-   ```
-   yarn setup
-   ```
+After cloning this repo, run the one-time setup script to install dependencies and git hooks:
+
+```
+yarn setup
+```
 
 ### Server and Typechecker
 
