@@ -21,9 +21,11 @@ export const config: HumanWritable.Config = {
   categories: [
     {
       title: "Software Development",
+      keywords: "software development",
       subCategories: [
         {
           title: "Engineering",
+          keywords: "engineering",
           entries: `
             The Art of Unix Programming | http://www.catb.org/esr/writings/taoup/html/ Eric Raymond
             https://buildingbeauty.org Christopher Alexander Greg Bryant
@@ -33,6 +35,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Unix",
+          keywords: "unix",
           entries: `
             https://hub.docker.com
             https://man7.org
@@ -40,6 +43,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Reference",
+          keywords: "reference",
           entries: `
             https://unicode.org
             https://memorymanagement.org
@@ -50,6 +54,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Web Programming",
+          keywords: "web programming",
           entries: `
             NPM | https://npmjs.com node package manager javascript
             MDN | https://developer.mozilla.com network html css javascript js
@@ -78,6 +83,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Hosting",
+          keywords: "hosting",
           entries: `
             fly.io | https://fly.io
             render.com | https://render.com
@@ -88,6 +94,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Help",
+          keywords: "help",
           entries: `
             stackoverflow.com | https://stackoverflow.com
             exercism.org | https://exercism.org
@@ -97,6 +104,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Food",
+      keywords: "food",
       subCategories: [
         {
           title: "Merchants",
@@ -106,7 +114,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Korean",
-          keywords: "korean",
+          keywords: "korean recipes cookbook",
           entries: `
             https://maangchi.com
             https://koreanbapsang.com
@@ -115,7 +123,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Indian",
-          keywords: "indian",
+          keywords: "indian recipes cookbook",
           entries: `
             https://indianhealthyrecipes.com
             https://www.vegrecipesofindia.com
@@ -123,7 +131,7 @@ export const config: HumanWritable.Config = {
         },
         {
           title: "Turkish",
-          keywords: "turkish",
+          keywords: "turkish recipes cookbook",
           entries: `
             Ozlem's Turkish Table | https://ozlemsturkishtable.com/
             Binnur's Turkish Cookbook | https://binnurturkishcookbook.blogspot.com/
@@ -133,6 +141,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Web-based Tools",
+      keywords: "web based tools",
       subCategories: [
         {
           title: "Sensing",
@@ -186,6 +195,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Gaming",
+      keywords: "gaming games",
       subCategories: [
         {
           title: "Catalogs",
@@ -257,6 +267,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Computer Habitability",
+      keywords: "computing computers browsers extensions",
       entries: `
         addons.mozilla.org | https://addons.mozilla.org
         LeechBlock NG | https://www.proginosko.com/leechblock/
@@ -268,6 +279,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Images",
+      keywords: "images",
       entries: `
         https://images.freeimages.com
         https://flickr.com
@@ -276,6 +288,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Learning",
+      keywords: "learning educational",
       entries: `
         https://khanacademy.org
         Leitner system (Wikipedia) | https://en.wikipedia.org/wiki/Leitner_system srs flashcards
@@ -283,17 +296,19 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Commerce",
+      keywords: "shopping amazon",
       entries: `
-        https://herbco.com
+        https://herbco.com monterey bay herb company
         https://betterworldbooks.com
         https://evertype.com
         https://newegg.com
-        https://bandcamp.com
-        https://alternativeto.net
+        https://bandcamp.com music
+        https://alternativeto.net software tools
       `,
     },
     {
       title: "Archives and Archiving",
+      keywords: "archives",
       entries: `
         https://archive.org
         https://versionmuseum.com
@@ -301,6 +316,7 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Books",
+      keywords: "books",
       entries: `
         https://books.google.com
         https://betterworldbooks.com
@@ -311,9 +327,10 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Music",
+      keywords: "music",
       entries: `
         https://universocantigas.gal
-        https://butterchurnviz.com
+        https://butterchurnviz.com visualizer
         https://open.spotify.com
         https://lyricstranslate.com
         https://musicanet.org
@@ -323,9 +340,10 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Video",
+      keywords: "videos",
       entries: `
         https://vimeo.com
-        https://vid.puffyan.us
+        https://vid.puffyan.us invidious
       `,
     },
     {
