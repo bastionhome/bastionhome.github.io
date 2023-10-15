@@ -7,11 +7,6 @@ import {plugin} from "bun"
 plugin({
   name: "Less",
   async setup(build) {
-    build.onLoad({filter: /\.less$/}, () => {
-      // and returns it as a module
-      return {
-        contents: "",
-      }
-    })
+    build.onLoad({filter: /\.less$/}, () => ({contents: ""}))
   },
 })
