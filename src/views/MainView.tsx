@@ -80,11 +80,7 @@ export function MainView(props: Props) {
               rel="noopener noreferrer"
               href="https://creativecommons.org/publicdomain/mark/1.0/?ref=openverse"
             >
-              Public Domain Mark 1.0{" "}
-              <img
-                src="https://mirrors.creativecommons.org/presskit/icons/pd.svg"
-                style="height: 1em; margin-right: 0.125em; display: inline;"
-              ></img>
+              Public Domain Mark 1.0
             </a>
             .
           </p>
