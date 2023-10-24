@@ -79,6 +79,7 @@ export const config: HumanWritable.Config = {
             https://caniuse.com
             https://bun.sh javascript js node
             Build Your Own React | https://pomb.us/build-your-own-react/ didact
+            https://codemirror.net
           `,
         },
         {
@@ -90,6 +91,7 @@ export const config: HumanWritable.Config = {
             cloudflare.com | https://cloudflare.com
             supabase.com | https://supabase.com
             digitalocean.com | https://digitalocean.com
+            https://hub.docker.com
           `,
         },
         {
@@ -98,6 +100,13 @@ export const config: HumanWritable.Config = {
           entries: `
             stackoverflow.com | https://stackoverflow.com
             exercism.org | https://exercism.org
+          `,
+        },
+        {
+          title: "On Mac OS",
+          keywords: "apple macintosh",
+          entries: `
+            Homebrew | https://brew.sh
           `,
         },
       ],
@@ -179,6 +188,12 @@ export const config: HumanWritable.Config = {
             https://jsonpath.com
             https://yamllint.com
             https://translate.google.com
+          `,
+        },
+        {
+          title: "Recording",
+          entries: `
+            https://pivotaltracker.com
           `,
         },
         {
@@ -275,6 +290,7 @@ export const config: HumanWritable.Config = {
         New Tab Override for Firefox | https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/
         darkreader.org | https://darkreader.org
         https://href.li
+        https://alternativeto.net
       `,
     },
     {
@@ -323,6 +339,7 @@ export const config: HumanWritable.Config = {
         https://evertype.com
         https://terebess.hu
         https://exclassics.com
+        https://en.wikibooks.org
       `,
     },
     {
@@ -336,6 +353,7 @@ export const config: HumanWritable.Config = {
         https://musicanet.org
         https://lieder.net
         https://bandcamp.com
+        Spotify | https://open.spotify.com
       `,
     },
     {
@@ -343,7 +361,7 @@ export const config: HumanWritable.Config = {
       keywords: "videos",
       entries: `
         https://vimeo.com
-        https://vid.puffyan.us invidious
+        Invidious | https://vid.puffyan.us
       `,
     },
     {
