@@ -300,6 +300,135 @@ test("parseConfig().categories", {
   },
 })
 
+test("parseConfig().leechblockAllowPatterns", {
+  "defaults to empty"() {
+    const input = {}
+    const expected = [] as string[]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "includes a custom pattern"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: "foo",
+    }
+    const expected = ["foo"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "includes multiple space-separated patterns"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: "foo bar baz",
+    }
+    const expected = ["foo", "bar", "baz"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "allows multiple spaces as separator"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: "foo   bar",
+    }
+    const expected = ["foo", "bar"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "allows other whitespace as separator"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: "foo\n\t   bar",
+    }
+    const expected = ["foo", "bar"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "ignores leading and trailing space in custom patterns"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: "  foo  ",
+    }
+    const expected = ["foo"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "includes a linked-to domain from a top-level category"() {
+    const input: HumanWritable.Config = {
+      categories: [
+        {
+          title: "Programming",
+          entries: `
+            https://example.com
+          `,
+        },
+      ],
+    }
+    const expected = ["example.com"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "includes a linked-to domain from a subcategory"() {
+    const input: HumanWritable.Config = {
+      categories: [
+        {
+          title: "Programming",
+          subCategories: [
+            {
+              title: "Lisp",
+              entries: `
+                http://dreamsongs.com
+              `,
+            },
+          ],
+        },
+      ],
+    }
+    const expected = ["dreamsongs.com"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "includes a linked-to domain from the menu"() {
+    const input: HumanWritable.Config = {
+      menu: `
+        https://benchristel.github.io
+      `,
+    }
+    const expected = ["benchristel.github.io"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+})
+
 function isAnything() {
   return true
 }

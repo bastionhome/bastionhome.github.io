@@ -5,6 +5,7 @@ export namespace ViewParams {
     menu: Array<Link>
     searchProviders: Array<SearchProvider>
     categories: Array<Category>
+    leechblockAllowPatterns: Array<string>
   }
 
   export type SearchProvider = {
@@ -33,8 +34,7 @@ export function presentConfig(
   config: MachineReadable.Config,
 ): ViewParams.Config {
   return {
-    menu: config.menu,
-    searchProviders: config.searchProviders,
+    ...config,
     categories: config.categories.map((category) => ({
       ...category,
       subCategories: category.subCategories.map((subCategory) => ({

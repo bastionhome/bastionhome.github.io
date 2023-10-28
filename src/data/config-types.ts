@@ -3,6 +3,7 @@ export namespace HumanWritable {
     menu?: string
     searchProviders?: string
     categories?: Array<Category>
+    customLeechblockAllowPatterns?: string
   }
 
   export type Category = {
@@ -24,6 +25,7 @@ export namespace MachineReadable {
     menu: Array<Link>
     searchProviders: Array<SearchProvider>
     categories: Array<Category>
+    leechblockAllowPatterns: Array<string>
   }
 
   export type Link = {

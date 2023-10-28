@@ -3,14 +3,31 @@ import {HumanWritable, MachineReadable} from "../config-types"
 import {parseEntry} from "./parse-entry"
 import {parseKeywords} from "./parse-keywords"
 import {parseLink} from "./parse-link"
+import {_, defaultToEmpty} from "../../lib/functional"
+import {flatMap, map} from "../../lib/arrays"
 
 export function parseConfig(
   raw: HumanWritable.Config,
 ): MachineReadable.Config {
+  const menu = parseMenu(raw.menu)
+  const categories = parseCategories(raw.categories)
   return {
-    menu: parseMenu(raw.menu),
+    menu,
     searchProviders: parseSearchProviders(raw.searchProviders),
-    categories: parseCategories(raw.categories),
+    categories,
+    leechblockAllowPatterns: [
+      ..._(menu, map(domain)),
+      ..._(
+        defaultToEmpty(categories),
+        flatMap((c) => [c, ...c.subCategories]),
+        flatMap(entries),
+        map(link),
+        map(domain),
+      ),
+      ...parseCustomLeechblockAllowPatterns(
+        raw.customLeechblockAllowPatterns,
+      ),
+    ],
   }
 }
 
@@ -35,6 +52,12 @@ function parseCategories(
   raw: Array<HumanWritable.Category> | undefined,
 ): Array<MachineReadable.Category> {
   return (raw ?? []).map(parseCategory)
+}
+
+function parseCustomLeechblockAllowPatterns(
+  raw: string | undefined,
+): Array<string> {
+  return raw?.trim().split(/\s+/) ?? []
 }
 
 function parseCategory(
@@ -87,4 +110,24 @@ function trimmedLines(s: string | undefined): Array<string> {
 
 function trim(s: string): string {
   return s.trim()
+}
+
+function entries(c: {
+  entries: Array<MachineReadable.Entry>
+}): Array<MachineReadable.Entry> {
+  return c.entries
+}
+
+function link(e: MachineReadable.Entry): MachineReadable.Link {
+  return e.link
+}
+
+function domain(l: MachineReadable.Link): string {
+  return new URL(l.destination).hostname
+}
+
+function subCategories(
+  c: MachineReadable.Category,
+): Array<MachineReadable.LeafCategory> {
+  return c.subCategories
 }

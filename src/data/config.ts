@@ -18,6 +18,16 @@ export const config: HumanWritable.Config = {
     Cornish Dictionary | https://cornishdictionary.org.uk/#%s
     Wikipedia | https://en.wikipedia.org/w/index.php?search=%s
   `,
+  customLeechblockAllowPatterns: `
+    bastionhome.github.io
+    localhost
+    127.0.0.1
+    youtube.com/channel*
+    youtube.com/@*
+    youtube.com/playlist*
+    youtube.com/results*
+    youtube.com/watch*
+  `,
   categories: [
     {
       title: "Software Development",
@@ -380,7 +390,6 @@ export const config: HumanWritable.Config = {
         http://www.hungarianreference.com
       `,
     },
-
     {
       title: "Academia",
       entries: `
@@ -391,7 +400,6 @@ export const config: HumanWritable.Config = {
         https://arxiv.org
       `,
     },
-
     {
       title: "Miscellaneous",
       entries: `

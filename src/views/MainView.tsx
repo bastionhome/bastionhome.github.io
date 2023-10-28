@@ -1,7 +1,9 @@
-import {h, Fragment} from "preact"
+import {h, Fragment, ComponentChildren} from "preact"
+import {useEffect, useRef, useState} from "preact/hooks"
 import "./MainView.less"
 import {Category} from "./Category"
 import {ViewParams} from "./view-params"
+import {DevInfoPane, DevInfoPaneOpener} from "./DevInfoPane"
 
 type Props = {
   config: ViewParams.Config
@@ -92,6 +94,12 @@ export function MainView(props: Props) {
             </a>
             .
           </p>
+
+          <DevInfoPaneOpener>
+            <DevInfoPane
+              leechblockAllowPatterns={config.leechblockAllowPatterns}
+            />
+          </DevInfoPaneOpener>
         </footer>
       </div>
     </>
