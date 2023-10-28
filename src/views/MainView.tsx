@@ -1,7 +1,7 @@
-import {h, Fragment, ComponentChildren} from "preact"
-import {useEffect, useRef, useState} from "preact/hooks"
+import {h, Fragment} from "preact"
 import "./MainView.less"
 import {Category} from "./Category"
+import {Button} from "./Button"
 import {ViewParams} from "./view-params"
 import {DevInfoPane, DevInfoPaneOpener} from "./DevInfoPane"
 
@@ -39,9 +39,9 @@ export function MainView(props: Props) {
           />
           <div class="search-providers">
             {config.searchProviders.map((provider, i) => (
-              <button key={i} onClick={() => onSearchSubmitted(i)}>
+              <Button key={i} onClick={() => onSearchSubmitted(i)}>
                 {provider.name}
-              </button>
+              </Button>
             ))}
           </div>
         </div>

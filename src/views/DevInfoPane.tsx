@@ -1,5 +1,6 @@
 import {h, ComponentChildren} from "preact"
 import {useState, useRef, useEffect} from "preact/hooks"
+import {Button} from "./Button"
 import "./DevInfoPane.less"
 
 export function DevInfoPaneOpener(props: {
@@ -21,9 +22,9 @@ export function DevInfoPaneOpener(props: {
 
   return (
     <div class="dev-info-pane-opener">
-      <button onClick={() => setOpen(true)}>
+      <Button onClick={() => setOpen(true)}>
         Show Developer Info
-      </button>
+      </Button>
       {open && <dialog ref={dialogRef}>{props.children}</dialog>}
     </div>
   )
