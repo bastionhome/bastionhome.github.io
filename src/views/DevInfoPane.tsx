@@ -37,15 +37,10 @@ export function DevInfoPane(props: {
       <label for="leechblock-config">LeechBlock Config</label>
       <textarea id="leechblock-config">
         {"*\n"}
-        {sortUnique(props.leechblockAllowPatterns)
+        {props.leechblockAllowPatterns
           .map((pattern) => "+" + pattern)
           .join("\n")}
       </textarea>
     </div>
   )
-}
-
-function sortUnique(unsorted: string[]): string[] {
-  const sorted = [...unsorted].sort()
-  return sorted.filter((s, i) => s !== sorted[i - 1])
 }

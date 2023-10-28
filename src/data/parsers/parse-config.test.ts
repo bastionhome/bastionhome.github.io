@@ -325,9 +325,9 @@ test("parseConfig().leechblockAllowPatterns", {
 
   "includes multiple space-separated patterns"() {
     const input: HumanWritable.Config = {
-      customLeechblockAllowPatterns: "foo bar baz",
+      customLeechblockAllowPatterns: "bar baz foo",
     }
-    const expected = ["foo", "bar", "baz"]
+    const expected = ["bar", "baz", "foo"]
     expect(
       parseConfig(input).leechblockAllowPatterns,
       equals,
@@ -337,9 +337,9 @@ test("parseConfig().leechblockAllowPatterns", {
 
   "allows multiple spaces as separator"() {
     const input: HumanWritable.Config = {
-      customLeechblockAllowPatterns: "foo   bar",
+      customLeechblockAllowPatterns: "bar   foo",
     }
-    const expected = ["foo", "bar"]
+    const expected = ["bar", "foo"]
     expect(
       parseConfig(input).leechblockAllowPatterns,
       equals,
@@ -349,9 +349,9 @@ test("parseConfig().leechblockAllowPatterns", {
 
   "allows other whitespace as separator"() {
     const input: HumanWritable.Config = {
-      customLeechblockAllowPatterns: "foo\n\t   bar",
+      customLeechblockAllowPatterns: "bar\n\t   foo",
     }
-    const expected = ["foo", "bar"]
+    const expected = ["bar", "foo"]
     expect(
       parseConfig(input).leechblockAllowPatterns,
       equals,
@@ -414,6 +414,20 @@ test("parseConfig().leechblockAllowPatterns", {
     )
   },
 
+  "includes the domains of search providers"() {
+    const input: HumanWritable.Config = {
+      searchProviders: `
+        https://search.me?q=%s
+      `,
+    }
+    const expected = ["search.me"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
   "includes a linked-to domain from the menu"() {
     const input: HumanWritable.Config = {
       menu: `
@@ -421,6 +435,27 @@ test("parseConfig().leechblockAllowPatterns", {
       `,
     }
     const expected = ["benchristel.github.io"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "sorts and deduplicates patterns"() {
+    const input: HumanWritable.Config = {
+      menu: `
+        foo
+        bar
+        dupe
+      `,
+      customLeechblockAllowPatterns: `
+        quux
+        kludge
+        dupe
+      `,
+    }
+    const expected = ["bar", "dupe", "foo", "kludge", "quux"]
     expect(
       parseConfig(input).leechblockAllowPatterns,
       equals,

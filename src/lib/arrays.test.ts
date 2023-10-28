@@ -1,5 +1,5 @@
 import {test, expect, equals} from "@benchristel/taste"
-import {map, flatMap} from "./arrays"
+import {map, flatMap, sortUnique} from "./arrays"
 
 test("map", {
   "returns empty given empty"() {
@@ -25,6 +25,30 @@ test("flatMap", {
       flatMap(pairWithNegative)([1, 2, 3]),
       equals,
       [1, -1, 2, -2, 3, -3],
+    )
+  },
+})
+
+test("sortUnique", {
+  "returns empty given empty"() {
+    expect(sortUnique([]), equals, [])
+  },
+
+  "sorts"() {
+    expect(sortUnique(["e", "b", "a", "d", "c"]), equals, [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+    ])
+  },
+
+  "deduplicates"() {
+    expect(
+      sortUnique(["green", "blue", "red", "blue", "green"]),
+      equals,
+      ["blue", "green", "red"],
     )
   },
 })

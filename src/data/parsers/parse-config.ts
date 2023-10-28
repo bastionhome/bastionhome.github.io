@@ -4,30 +4,40 @@ import {parseEntry} from "./parse-entry"
 import {parseKeywords} from "./parse-keywords"
 import {parseLink} from "./parse-link"
 import {_, defaultToEmpty} from "../../lib/functional"
-import {flatMap, map} from "../../lib/arrays"
+import {flatMap, map, sortUnique} from "../../lib/arrays"
 
 export function parseConfig(
   raw: HumanWritable.Config,
 ): MachineReadable.Config {
   const menu = parseMenu(raw.menu)
   const categories = parseCategories(raw.categories)
+  const searchProviders = parseSearchProviders(raw.searchProviders)
   return {
     menu,
-    searchProviders: parseSearchProviders(raw.searchProviders),
+    searchProviders,
     categories,
-    leechblockAllowPatterns: [
-      ..._(menu, map(domain)),
+    leechblockAllowPatterns: sortUnique([
+      ..._(
+        menu,
+        map((link) => link.destination),
+        map(domain),
+      ),
+      ..._(
+        searchProviders,
+        map((p) => p.searchUrlFormat),
+        map(domainAndPath),
+      ),
       ..._(
         defaultToEmpty(categories),
         flatMap((c) => [c, ...c.subCategories]),
-        flatMap(entries),
-        map(link),
+        flatMap((c) => c.entries),
+        map((e) => e.link.destination),
         map(domain),
       ),
       ...parseCustomLeechblockAllowPatterns(
         raw.customLeechblockAllowPatterns,
       ),
-    ],
+    ]),
   }
 }
 
@@ -112,22 +122,23 @@ function trim(s: string): string {
   return s.trim()
 }
 
-function entries(c: {
-  entries: Array<MachineReadable.Entry>
-}): Array<MachineReadable.Entry> {
-  return c.entries
+function domain(url: string): string {
+  return rescue(
+    () => new URL(url).hostname,
+    () => url,
+  )
 }
 
-function link(e: MachineReadable.Entry): MachineReadable.Link {
-  return e.link
+function domainAndPath(urlString: string): string {
+  const url = new URL(urlString)
+  const path = url.pathname === "/" ? "" : url.pathname
+  return url.hostname + path
 }
 
-function domain(l: MachineReadable.Link): string {
-  return new URL(l.destination).hostname
-}
-
-function subCategories(
-  c: MachineReadable.Category,
-): Array<MachineReadable.LeafCategory> {
-  return c.subCategories
+function rescue<T>(mightFail: () => T, sureThing: () => T): T {
+  try {
+    return mightFail()
+  } catch {
+    return sureThing()
+  }
 }
