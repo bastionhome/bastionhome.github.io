@@ -41,6 +41,7 @@ export const config: HumanWritable.Config = {
             https://buildingbeauty.org Christopher Alexander Greg Bryant
             https://beautiful.software Christopher Alexander Greg Bryant
             https://refactoring.com Martin Fowler
+            https://dreamsongs.com Richard Gabriel
           `,
         },
         {
