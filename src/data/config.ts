@@ -27,6 +27,10 @@ export const config: HumanWritable.Config = {
     youtube.com/playlist*
     youtube.com/results*
     youtube.com/watch*
+    dasichuanrestaurant.com
+    doordash.com
+    yelp.com
+    opentable.com
   `,
   categories: [
     {
@@ -91,6 +95,7 @@ export const config: HumanWritable.Config = {
             https://bun.sh javascript js node
             Build Your Own React | https://pomb.us/build-your-own-react/ didact
             https://codemirror.net
+            https://eloquentjavascript.net
           `,
         },
         {
@@ -130,6 +135,7 @@ export const config: HumanWritable.Config = {
           title: "Merchants",
           entries: `
             https://herbco.com
+            Byrd's Filling Station | https://byrdsfillingstation.com/pages/in-store-bulk-product-list-non-food
           `,
         },
         {
@@ -331,6 +337,7 @@ export const config: HumanWritable.Config = {
         https://newegg.com
         https://bandcamp.com music
         https://alternativeto.net software tools
+        Byrd's Filling Station | https://byrdsfillingstation.com/pages/in-store-bulk-product-list-non-food
       `,
     },
     {
