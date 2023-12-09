@@ -134,6 +134,7 @@ export const config: HumanWritable.Config = {
         {
           title: "Merchants",
           entries: `
+            Sunridge Farms | https://shopsunridgefarms.com bulk
             https://herbco.com
             Byrd's Filling Station | https://byrdsfillingstation.com/pages/in-store-bulk-product-list-non-food
           `,
@@ -317,6 +318,7 @@ export const config: HumanWritable.Config = {
         https://images.freeimages.com
         https://flickr.com
         https://cliparts.co
+        https://search.creativecommons.org/
       `,
     },
     {
@@ -331,13 +333,14 @@ export const config: HumanWritable.Config = {
       title: "Commerce",
       keywords: "shopping amazon",
       entries: `
-        https://herbco.com monterey bay herb company
+        Sunridge Farms | https://shopsunridgefarms.com bulk
+        https://herbco.com monterey bay herb company bulk
         https://betterworldbooks.com
         https://evertype.com
         https://newegg.com
         https://bandcamp.com music
         https://alternativeto.net software tools
-        Byrd's Filling Station | https://byrdsfillingstation.com/pages/in-store-bulk-product-list-non-food
+        Byrd's Filling Station | https://byrdsfillingstation.com/pages/in-store-bulk-product-list-non-food bulk
       `,
     },
     {
@@ -354,6 +357,7 @@ export const config: HumanWritable.Config = {
       entries: `
         https://books.google.com
         https://betterworldbooks.com
+        https://www.ebooks.com
         https://evertype.com
         https://terebess.hu
         https://exclassics.com
