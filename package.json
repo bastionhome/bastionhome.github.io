@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "yarn vite build && bun devtools/ssr.js",
-    "dev": "yarn vite",
+    "dev": "yarn vite --open",
     "format": "node_modules/.bin/prettier --write .",
     "setup": "yarn install; yarn run husky install",
     "smoke": "yarn vite preview --open",
