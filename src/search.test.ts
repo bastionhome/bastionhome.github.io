@@ -219,7 +219,11 @@ test("search", {
 test("webSearchUrl", {
   "constructs a DuckDuckGo URL"() {
     const query = "hello"
-    expect(webSearchUrl(query), is, "https://duckduckgo.com?q=hello")
+    expect(
+      webSearchUrl(query),
+      is,
+      "https://html.duckduckgo.com/html/?q=hello",
+    )
   },
 
   "escapes spaces"() {
@@ -227,7 +231,7 @@ test("webSearchUrl", {
     expect(
       webSearchUrl(query),
       is,
-      "https://duckduckgo.com?q=hello%20world",
+      "https://html.duckduckgo.com/html/?q=hello%20world",
     )
   },
 })

@@ -9,7 +9,7 @@ export const config: HumanWritable.Config = {
     Call    | https://benchristel.github.io/call
   `,
   searchProviders: `
-    DuckDuckGo | https://duckduckgo.com?q=%s
+    DuckDuckGo | https://html.duckduckgo.com/html/?q=%s
     YouTube | https://youtube.com/results?search_query=%s
     GitHub | https://github.com/search?q=%s
     NPM | https://www.npmjs.com/search?q=%s

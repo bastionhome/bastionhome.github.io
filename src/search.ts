@@ -15,7 +15,9 @@ export function search(
 }
 
 export function webSearchUrl(query: string): string {
-  return "https://duckduckgo.com?q=" + encodeURIComponent(query)
+  return (
+    "https://html.duckduckgo.com/html/?q=" + encodeURIComponent(query)
+  )
 }
 
 const categoryMatches = curry(
