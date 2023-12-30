@@ -13,9 +13,10 @@ export const config: HumanWritable.Config = {
     YouTube | https://youtube.com/results?search_query=%s
     GitHub | https://github.com/search?q=%s
     NPM | https://www.npmjs.com/search?q=%s
+    Openverse | https://openverse.org/search/?q=%s
     Unicode | https://www.fileformat.info/info/unicode/char/search.htm?q=%s&han=Y&preview=entity
     iconsdb | https://www.iconsdb.com/black-icons/?search=%s
-    Cornish Dictionary | https://cornishdictionary.org.uk/#%s
+    Cornish Dict. | https://cornishdictionary.org.uk/#%s
     Wikipedia | https://en.wikipedia.org/w/index.php?search=%s
   `,
   customLeechblockAllowPatterns: `
