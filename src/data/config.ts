@@ -63,9 +63,9 @@ export const config: HumanWritable.Config = {
           entries: `
             https://unicode.org
             https://memorymanagement.org
-            https://spectrum.ieee.org
             https://lawsofux.com
             https://cheatsheetseries.owasp.org
+            https://www.w3.org world wide web consortium
           `,
         },
         {
@@ -98,6 +98,10 @@ export const config: HumanWritable.Config = {
             https://codemirror.net
             https://eloquentjavascript.net
           `,
+        },
+        {
+          title: "Languages",
+          entries: `Zig | https://ziglang.org`,
         },
         {
           title: "Hosting",
@@ -165,6 +169,13 @@ export const config: HumanWritable.Config = {
             Binnur's Turkish Cookbook | https://binnurturkishcookbook.blogspot.com/
           `,
         },
+        {
+          title: "French",
+          keywords: "french recipes cookbook",
+          entries: `
+            https://www.pardonyourfrench.com
+          `,
+        },
       ],
     },
     {
@@ -192,6 +203,13 @@ export const config: HumanWritable.Config = {
             https://pop.com
             https://tuple.app
             https://benchristel.github.io/call
+            https://pivotaltracker.com
+          `,
+        },
+        {
+          title: "Calculating",
+          entries: `
+            www.wolframalpha.com
           `,
         },
         {
@@ -265,7 +283,7 @@ export const config: HumanWritable.Config = {
           title: "Heroes of Might and Magic",
           entries: `
             http://celestialheavens.com
-            https://maps4heroes.com/
+            https://maps4heroes.com
             https://heroesofmightandmagic.com
             https://mightandmagic.fandom.com
             https://heroescommunity.com
@@ -349,6 +367,7 @@ export const config: HumanWritable.Config = {
       keywords: "archives",
       entries: `
         https://archive.org
+        https://ghostarchive.org
         https://versionmuseum.com
       `,
     },
@@ -424,6 +443,7 @@ export const config: HumanWritable.Config = {
         https://en.wikiquote.org
         https://en.wikisource.org
         https://npl.wiki
+        http://www.livingneighborhoods.org
       `,
     },
   ],
