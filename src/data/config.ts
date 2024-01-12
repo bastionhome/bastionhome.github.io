@@ -358,6 +358,8 @@ export const config: HumanWritable.Config = {
         https://evertype.com
         https://newegg.com
         https://bandcamp.com music
+        qobuz.com | https://qobuz.com music
+        https://everynoise.com
         https://alternativeto.net software tools
         Byrd's Filling Station | https://byrdsfillingstation.com/pages/in-store-bulk-product-list-non-food bulk
       `,
@@ -387,16 +389,50 @@ export const config: HumanWritable.Config = {
     {
       title: "Music",
       keywords: "music",
-      entries: `
-        https://universocantigas.gal
-        https://butterchurnviz.com visualizer
-        https://open.spotify.com
-        https://lyricstranslate.com
-        https://musicanet.org
-        https://lieder.net
-        https://bandcamp.com
-        Spotify | https://open.spotify.com
-      `,
+      subCategories: [
+        {
+          title: "Lyrics",
+          keywords: "lyrics",
+          entries: `
+            https://lyricstranslate.com
+            https://universocantigas.gal
+            https://lieder.net
+            https://musicanet.org
+          `,
+        },
+        {
+          title: "Visualizers",
+          keywords: "visualizers",
+          entries: `
+            https://butterchurnviz.com
+          `,
+        },
+        {
+          title: "Streaming",
+          keywords: "streaming",
+          entries: `
+            https://bandcamp.com
+            https://deezer.com
+            https://open.spotify.com
+            qobuz.com | https://www.qobuz.com/us-en/discover
+          `,
+        },
+        {
+          title: "Stores",
+          keywords: "buying purchase purchasing stores",
+          entries: `
+            qobuz.com | https://www.qobuz.com/us-en/discover
+          `,
+        },
+        {
+          title: "History",
+          keywords: "history",
+          entries: `
+            https://albumoftheyear.org history
+            https://lieder.net
+          `,
+        },
+      ],
     },
     {
       title: "Video",
