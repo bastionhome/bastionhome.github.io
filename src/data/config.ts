@@ -6,7 +6,7 @@ export const config: HumanWritable.Config = {
     Recipes | https://benchristel.github.io/recipes
     Bliki   | https://github.com/benchristel/benchristel.github.io/wiki
     Gmail   | https://mail.google.com
-    Call    | https://benchristel.github.io/call
+    Guide   | https://bensguide.substack.com
   `,
   searchProviders: `
     DuckDuckGo | https://html.duckduckgo.com/html/?q=%s
