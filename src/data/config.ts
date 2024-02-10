@@ -107,12 +107,22 @@ export const config: HumanWritable.Config = {
           title: "Hosting",
           keywords: "hosting",
           entries: `
+            https://gitlab.com
+            https://surge.sh/
             fly.io | https://fly.io
             render.com | https://render.com
             cloudflare.com | https://cloudflare.com
             supabase.com | https://supabase.com
             digitalocean.com | https://digitalocean.com
             https://hub.docker.com
+            https://adaptable.io
+            alwaysdata.com | https://www.alwaysdata.com/en/
+            https://www.argonaut.dev/
+            https://www.cyclic.sh/
+            https://domcloud.co/
+            https://www.koyeb.com/
+            https://www.northflank.com/
+            https://www.withcoherence.com/
           `,
         },
         {
