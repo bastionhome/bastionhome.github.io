@@ -1,4 +1,5 @@
 import {MachineReadable} from "../config-types"
+import {declutter} from "./urls"
 
 export function parseEntry(raw: string): MachineReadable.Entry {
   const [text, destination, keywords] = entryParts(raw)
@@ -23,9 +24,5 @@ function entryParts(raw: string): [string, string, string[]] {
 
   const [url, ...keywords] = urlAndKeywords.split(/\s+/)
 
-  return [alias ?? removeScheme(url), url, keywords]
-}
-
-function removeScheme(url: string): string {
-  return url.replace(/^[^:]+:\/\//, "")
+  return [alias ?? declutter(url), url, keywords]
 }
