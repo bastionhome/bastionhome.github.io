@@ -486,7 +486,7 @@ export const config: HumanWritable.Config = {
           title: "Sit, Breathe, Wake Up! (Culadasa)",
           keywords: "sit breathe wake up culadasa",
           entries: `
-            Video 1 (40m) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=4XGLpEJBq5c
+            Video 1 (40m) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=UG-0XGpesgs
             Video 2 (43m) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=IeXWFRs5cGk
             Video 3 (46m) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=SRqXq570Cf0
             Video 4 (21m) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=aNFc4veG61E
