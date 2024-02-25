@@ -395,6 +395,17 @@ export const config: HumanWritable.Config = {
         https://exclassics.com
         https://en.wikibooks.org
       `,
+      subCategories: [
+        {
+          title: "Audiobooks",
+          keywords: "audiobooks",
+          entries: `
+            https://librivox.org
+            His Last Bow (Sherlock Holmes) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=aV3MnZW-rbA sir arthur conan doyle
+            The Return of Sherlock Holmes | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=vzFCXmbdmNk sir arthur conan doyle
+          `,
+        },
+      ],
     },
     {
       title: "Music",
