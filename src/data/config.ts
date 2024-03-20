@@ -461,6 +461,8 @@ export const config: HumanWritable.Config = {
       entries: `
         https://vimeo.com
         Invidious | https://vid.puffyan.us
+        WeVidi | https://wevidi.net
+        My 2000's TV | https://my00stv.com/
       `,
     },
     {
@@ -524,6 +526,7 @@ export const config: HumanWritable.Config = {
         https://en.wikisource.org
         https://npl.wiki
         http://www.livingneighborhoods.org
+        https://ytoo.org/
       `,
     },
   ],
