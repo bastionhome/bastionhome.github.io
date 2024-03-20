@@ -233,6 +233,8 @@
           `}]},{title:"Video",keywords:"videos",entries:`
         https://vimeo.com
         Invidious | https://vid.puffyan.us
+        WeVidi | https://wevidi.net
+        My 2000's TV | https://my00stv.com/
       `},{title:"Languages and Linguistics",entries:`
         https://akademikernewek.org.uk
         https://cornish-language.org
@@ -272,4 +274,5 @@
         https://en.wikisource.org
         https://npl.wiki
         http://www.livingneighborhoods.org
+        https://ytoo.org/
       `}]};function Le(t){return{...t,categories:t.categories.map(e=>({...e,subCategories:e.subCategories.map(o=>({...o,entries:o.entries.map(n=>n.link)})),entries:e.entries.map(o=>o.link)}))}}function Pe(t,e){return e.filter(Ae(t)).map(Ee(t))}const Ae=b((t,e)=>e.entries.some(R(t))||e.subCategories.some(Ut(t)),"categoryMatches"),Ee=b((t,e)=>({...e,entries:e.entries.filter(R(t)),subCategories:e.subCategories.filter(Ut(t)).map(Fe(t))})),Ut=b((t,e)=>e.entries.some(R(t))),Fe=b((t,e)=>({...e,entries:e.entries.filter(R(t))})),R=b((t,e)=>He(t).every(o=>e.link.destination.toLowerCase().includes(o)||e.link.text.toLowerCase().includes(o)||e.keywords.some(n=>n.toLowerCase().includes(o))),"entryMatches");function He(t){return t.toLowerCase().split(/\s+/)}function Me(){const[t,e]=Ht(""),o=de(Se),n={...o,categories:Pe(t,o.categories)};return l(ne,{config:Le(n),query:t,onQuery:e,onSearchSubmitted:s=>window.open(o.searchProviders[s].searchUrlFormat.replace("%s",t),"_self")})}b((t,e)=>L(new Set(t),new Set(e)),"isSameSetAs");b((t,e)=>{for(let o in t)if(!(o in e)||!L(t[o],e[o]))return!1;return!0},"hasProperties");var wt;(t=>{function e({title:o="",entries:n=[],subCategories:s=[]}){return{title:o,entries:n,subCategories:s}}t.category=e})(wt||(wt={}));Rt(l(Me,null),document.getElementById("preact-root"));
