@@ -254,6 +254,7 @@
         https://apa.org
         https://arxiv.org
       `},{title:"Meditation",keywords:"meditation",entries:`
+        https://benchristel.github.io/meditation
         30-minute meditation, bells every 5 minutes | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=AoDoci_oAvw
       `,subCategories:[{title:"Sit, Breathe, Wake Up! (Culadasa)",keywords:"sit breathe wake up culadasa",entries:`
             Video 1 (40m) | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=UG-0XGpesgs
