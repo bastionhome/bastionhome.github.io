@@ -495,6 +495,7 @@ export const config: HumanWritable.Config = {
       title: "Meditation",
       keywords: "meditation",
       entries: `
+        https://benchristel.github.io/meditation
         30-minute meditation, bells every 5 minutes | https://benchristel.github.io/yt/#https://www.youtube.com/watch?v=AoDoci_oAvw
       `,
       subCategories: [
