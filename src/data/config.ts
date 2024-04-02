@@ -467,11 +467,8 @@ export const config: HumanWritable.Config = {
     },
     {
       title: "Languages and Linguistics",
+      keywords: "languages linguistics",
       entries: `
-        https://akademikernewek.org.uk
-        https://cornish-language.org
-        https://cornishdictionary.org.uk
-        https://gocornish.org
         https://zompist.com
         https://latecornishlittlebits.blogspot.com
         https://merriam-webster.com
@@ -480,6 +477,20 @@ export const config: HumanWritable.Config = {
         https://dedalvs.com
         http://www.hungarianreference.com
       `,
+      subCategories: [
+        {
+          title: "Cornish",
+          keywords: "cornish kernewek kernowek",
+          entries: `
+          https://akademikernewek.org.uk
+          https://cornish-language.org
+          https://cornishdictionary.org.uk
+          https://gocornish.org
+          Kernowek Bew - Audio Course by Dan Prohaska | https://kernowekbew.com/clowgors-audio-course
+          Alternative Set of Courses by Dan Prohaska | https://www.kernewegva.com/deskikernowek.html
+          `,
+        },
+      ],
     },
     {
       title: "Academia",
