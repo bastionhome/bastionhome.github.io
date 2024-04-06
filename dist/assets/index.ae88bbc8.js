@@ -21,6 +21,7 @@
     bastionhome.github.io
     localhost
     127.0.0.1
+    10.0.0.1
     youtube.com/channel*
     youtube.com/@*
     youtube.com/playlist*
@@ -36,6 +37,8 @@
     allrecipes.com
     goatcounter.com
     *.goatcounter.com
+    google.com
+    *.google.com
   `,categories:[{title:"Software Development",keywords:"software development",subCategories:[{title:"Engineering",keywords:"engineering",entries:`
             The Art of Unix Programming | http://www.catb.org/esr/writings/taoup/html/ Eric Raymond
             https://buildingbeauty.org Christopher Alexander Greg Bryant
