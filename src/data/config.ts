@@ -23,6 +23,7 @@ export const config: HumanWritable.Config = {
     bastionhome.github.io
     localhost
     127.0.0.1
+    10.0.0.1
     youtube.com/channel*
     youtube.com/@*
     youtube.com/playlist*
@@ -38,6 +39,8 @@ export const config: HumanWritable.Config = {
     allrecipes.com
     goatcounter.com
     *.goatcounter.com
+    google.com
+    *.google.com
   `,
   categories: [
     {
