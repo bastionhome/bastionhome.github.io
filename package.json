@@ -24,6 +24,7 @@
     "format": "node_modules/.bin/prettier --write .",
     "setup": "yarn install; yarn run husky install",
     "smoke": "yarn vite preview --open",
+    "deploy": "devtools/deploy.sh",
     "ts": "yarn tsc --watch --noEmit"
   }
 }
