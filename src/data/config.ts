@@ -4,9 +4,9 @@ export const config: HumanWritable.Config = {
   menu: `
     TV      | https://benchristel.github.io/tv
     Recipes | https://benchristel.github.io/recipes
-    Bliki   | https://github.com/benchristel/benchristel.github.io/wiki
-    Gmail   | https://mail.google.com
+    Book    | https://benchristel.github.io/process-to-processes
     Guide   | https://bensguide.substack.com
+    Zen     | https://benchristel.github.io/meditation
   `,
   searchProviders: `
     DuckDuckGo | https://html.duckduckgo.com/html/?q=%s
@@ -32,6 +32,12 @@ export const config: HumanWritable.Config = {
     doordash.com
     yelp.com
     opentable.com
+    fidelity.com
+    sfcu.org
+    etrade.com
+    allrecipes.com
+    goatcounter.com
+    *.goatcounter.com
   `,
   categories: [
     {
