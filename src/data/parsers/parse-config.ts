@@ -12,32 +12,18 @@ export function parseConfig(
   const menu = parseMenu(raw.menu)
   const categories = parseCategories(raw.categories)
   const searchProviders = parseSearchProviders(raw.searchProviders)
+  const leechblockAllowPatterns = compileLeechblockAllowPatterns(
+    menu,
+    searchProviders,
+    categories,
+    raw.customLeechblockAllowPatterns,
+  )
+
   return {
     menu,
     searchProviders,
     categories,
-    leechblockAllowPatterns: sortUnique([
-      ..._(
-        menu,
-        map((link) => link.destination),
-        map(domain),
-      ),
-      ..._(
-        searchProviders,
-        map((p) => p.searchUrlFormat),
-        map(domainAndPath),
-      ),
-      ..._(
-        defaultToEmpty(categories),
-        flatMap((c) => [c, ...c.subCategories]),
-        flatMap((c) => c.entries),
-        map((e) => e.link.destination),
-        map(domain),
-      ),
-      ...parseCustomLeechblockAllowPatterns(
-        raw.customLeechblockAllowPatterns,
-      ),
-    ]),
+    leechblockAllowPatterns,
   }
 }
 
@@ -62,6 +48,39 @@ function parseCategories(
   raw: Array<HumanWritable.Category> | undefined,
 ): Array<MachineReadable.Category> {
   return (raw ?? []).map(parseCategory)
+}
+
+function compileLeechblockAllowPatterns(
+  menu: MachineReadable.Link[],
+  searchProviders: MachineReadable.SearchProvider[],
+  categories: MachineReadable.Category[],
+  custom: string | undefined,
+): string[] {
+  const links: MachineReadable.Link[] = [
+    ...menu,
+    ..._(
+      defaultToEmpty(categories),
+      flatMap((c) => [c, ...c.subCategories]),
+      flatMap((c) => c.entries),
+      map((e) => e.link),
+    ),
+  ]
+
+  const allowList = [
+    ..._(
+      links,
+      map((link) => link.destination),
+      map(domain),
+    ),
+    ..._(
+      searchProviders,
+      map((p) => p.searchUrlFormat),
+      map(domainAndPath),
+    ),
+    ...parseCustomLeechblockAllowPatterns(custom),
+  ]
+
+  return sortUnique(allowList)
 }
 
 function parseCustomLeechblockAllowPatterns(
