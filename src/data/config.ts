@@ -41,6 +41,10 @@ export const config: HumanWritable.Config = {
     *.goatcounter.com
     google.com
     *.google.com
+    duckduckgo.com
+    *.duckduckgo.com
+    antfu.me
+    bookmarkbeat.substack.com
   `,
   categories: [
     {
@@ -75,6 +79,8 @@ export const config: HumanWritable.Config = {
             https://lawsofux.com
             https://cheatsheetseries.owasp.org
             https://www.w3.org world wide web consortium
+            Pivotal Alumni Codex | https://alumni-codex.github.io
+            C2 Wiki | https://wiki.c2.com Ward Cunningham
           `,
         },
         {
@@ -91,6 +97,8 @@ export const config: HumanWritable.Config = {
             https://vitejs.dev
             https://preactjs.com
             https://react.dev
+            https://mdxjs.com
+            https://eslint.style
             https://sqlite.org
             https://json.org
             https://jwt.io
@@ -106,6 +114,14 @@ export const config: HumanWritable.Config = {
             Build Your Own React | https://pomb.us/build-your-own-react/ didact
             https://codemirror.net
             https://eloquentjavascript.net
+            https://uxdesign.cc
+          `,
+        },
+        {
+          title: "Domain Registrars",
+          entries: `
+            https://namecheap.com
+            https://squarespace.com
           `,
         },
         {
@@ -154,6 +170,9 @@ export const config: HumanWritable.Config = {
     {
       title: "Food",
       keywords: "food",
+      entries: `
+        https://cedardownfarms.ca
+      `,
       subCategories: [
         {
           title: "Merchants",
@@ -228,13 +247,15 @@ export const config: HumanWritable.Config = {
         {
           title: "Calculating",
           entries: `
-            www.wolframalpha.com
+            https://www.wolframalpha.com
           `,
         },
         {
           title: "Creating",
           entries: `
             https://excalidraw.com
+            https://dillinger.io
+            https://fontstruct.com/
           `,
         },
         {
@@ -272,8 +293,9 @@ export const config: HumanWritable.Config = {
           title: "Catalogs",
           entries: `
             https://protondb.com linux wine
-            https://store.steampowered.com
+            https://steampowered.com
             https://steamdb.info
+            https://steamcommunity.com
             https://kongregate.com
           `,
         },
@@ -334,6 +356,7 @@ export const config: HumanWritable.Config = {
         https://packages.fedoraproject.org
         https://flathub.org
         https://cinnamon-spices.linuxmint.com
+        https://wasdkeyboards.com
       `,
     },
     {
@@ -350,6 +373,15 @@ export const config: HumanWritable.Config = {
       `,
     },
     {
+      title: "Typography",
+      keywords: "typography fonts",
+      entries: `
+        David Jonathan Ross Fonts | https://djr.com
+        https://fonts.google.com
+        https://fontstruct.com/
+      `,
+    },
+    {
       title: "Images",
       keywords: "images",
       entries: `
@@ -357,6 +389,9 @@ export const config: HumanWritable.Config = {
         https://flickr.com
         https://cliparts.co
         https://search.creativecommons.org/
+        Wikimedia Commons | https://commons.wikimedia.org
+        Pattern Monster SVGs | https://pattern.monster
+        heropatterns.com SVGs | https://heropatterns.com
       `,
     },
     {
@@ -384,6 +419,17 @@ export const config: HumanWritable.Config = {
       `,
     },
     {
+      title: "Finance",
+      keywords: "banking stocks savings accounts investments",
+      entries: `
+        Stanford Federal Credit Union | https://sfcu.org
+        Fidelity | https://fidelity.com
+        eTrade | https://etrade.com
+        Capital One | https://capitalone.com
+        Venmo | https://venmo.com
+      `,
+    },
+    {
       title: "Archives and Archiving",
       keywords: "archives",
       entries: `
@@ -403,6 +449,7 @@ export const config: HumanWritable.Config = {
         https://terebess.hu
         https://exclassics.com
         https://en.wikibooks.org
+        https://libretexts.org
       `,
       subCategories: [
         {
@@ -548,6 +595,7 @@ export const config: HumanWritable.Config = {
         https://npl.wiki
         http://www.livingneighborhoods.org
         https://ytoo.org/
+        U.S. Bureau of Labor Statistics Database | data.bls.gov
       `,
     },
   ],
