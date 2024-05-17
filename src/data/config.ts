@@ -171,7 +171,7 @@ export const config: HumanWritable.Config = {
       title: "Food",
       keywords: "food",
       entries: `
-        https://cedardownfarms.ca
+        https://cedardownfarm.ca
       `,
       subCategories: [
         {
