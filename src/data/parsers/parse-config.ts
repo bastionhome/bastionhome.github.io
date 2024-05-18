@@ -5,7 +5,6 @@ import {parseKeywords} from "./parse-keywords"
 import {parseLink} from "./parse-link"
 import {_, defaultToEmpty} from "../../lib/functional"
 import {flatMap, map, sortUnique} from "../../lib/arrays"
-import {parseUrl} from "./urls"
 
 export function parseConfig(
   raw: HumanWritable.Config,
