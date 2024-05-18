@@ -90,6 +90,7 @@ function wildcardsForSubdomainsOfPrimaryDomains(
   urls: string[],
 ): string[] {
   return urls
+    .filter(hasNoPath)
     .map(domain)
     .filter(isPrimaryDomain)
     .map((s) => "*." + s)
@@ -158,6 +159,17 @@ function domain(url: string): string {
     () => new URL(url).hostname,
     () => url.split("/")[0],
   )
+}
+
+function hasNoPath(url: string): boolean {
+  try {
+    const normalized = /^https?:\/\//.test(url)
+      ? url
+      : "https://" + url
+    return new URL(normalized).pathname === "/"
+  } catch {
+    return true
+  }
 }
 
 function domainAndPath(urlString: string): string {

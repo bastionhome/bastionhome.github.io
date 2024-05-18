@@ -505,13 +505,13 @@ test("parseConfig().leechblockAllowPatterns", {
     )
   },
 
-  "does not generate subdomain wildcards with paths"() {
+  "does not generate subdomain wildcards for URLs with paths"() {
     const input: HumanWritable.Config = {
       customLeechblockAllowPatterns: `
         foo.com/some/page
       `,
     }
-    const expected = ["*.foo.com", "foo.com/some/page"]
+    const expected = ["foo.com/some/page"]
     expect(
       parseConfig(input).leechblockAllowPatterns,
       equals,
