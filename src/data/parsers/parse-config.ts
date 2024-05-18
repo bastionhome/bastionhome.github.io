@@ -5,6 +5,7 @@ import {parseKeywords} from "./parse-keywords"
 import {parseLink} from "./parse-link"
 import {_, defaultToEmpty} from "../../lib/functional"
 import {flatMap, map, sortUnique} from "../../lib/arrays"
+import {parseUrl} from "./urls"
 
 export function parseConfig(
   raw: HumanWritable.Config,
@@ -80,7 +81,19 @@ function compileLeechblockAllowPatterns(
     ...parseCustomLeechblockAllowPatterns(custom),
   ]
 
-  return sortUnique(allowList)
+  return sortUnique([
+    ...allowList,
+    ...wildcardsForSubdomainsOfPrimaryDomains(allowList),
+  ])
+}
+
+function wildcardsForSubdomainsOfPrimaryDomains(
+  urls: string[],
+): string[] {
+  return urls
+    .map(domain)
+    .filter(isPrimaryDomain)
+    .map((s) => "*." + s)
 }
 
 function parseCustomLeechblockAllowPatterns(
@@ -144,7 +157,7 @@ function trim(s: string): string {
 function domain(url: string): string {
   return rescue(
     () => new URL(url).hostname,
-    () => url,
+    () => url.split("/")[0],
   )
 }
 
@@ -152,6 +165,10 @@ function domainAndPath(urlString: string): string {
   const url = new URL(urlString)
   const path = url.pathname === "/" ? "" : url.pathname
   return url.hostname + path
+}
+
+function isPrimaryDomain(domain: string): boolean {
+  return domain.split(".").length === 2
 }
 
 function rescue<T>(mightFail: () => T, sureThing: () => T): T {

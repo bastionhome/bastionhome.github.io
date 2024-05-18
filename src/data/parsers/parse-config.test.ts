@@ -382,10 +382,10 @@ test("parseConfig().leechblockAllowPatterns", {
         },
       ],
     }
-    const expected = ["example.com"]
+    const expected = "example.com"
     expect(
       parseConfig(input).leechblockAllowPatterns,
-      equals,
+      includes,
       expected,
     )
   },
@@ -406,10 +406,10 @@ test("parseConfig().leechblockAllowPatterns", {
         },
       ],
     }
-    const expected = ["dreamsongs.com"]
+    const expected = "dreamsongs.com"
     expect(
       parseConfig(input).leechblockAllowPatterns,
-      equals,
+      includes,
       expected,
     )
   },
@@ -420,10 +420,10 @@ test("parseConfig().leechblockAllowPatterns", {
         https://search.me?q=%s
       `,
     }
-    const expected = ["search.me"]
+    const expected = "search.me"
     expect(
       parseConfig(input).leechblockAllowPatterns,
-      equals,
+      includes,
       expected,
     )
   },
@@ -462,6 +462,62 @@ test("parseConfig().leechblockAllowPatterns", {
       expected,
     )
   },
+
+  "includes wildcards matching subdomains of listed primary domains"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: `
+        foo.com
+      `,
+    }
+    const expected = ["*.foo.com", "foo.com"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "does not include wildcards for subdomains of subdomains"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: `
+        user.untrusted.com
+      `,
+    }
+    const expected = ["user.untrusted.com"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "does not add stars to existing wildcards"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: `
+        *.foo.com
+      `,
+    }
+    const expected = ["*.foo.com"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
+
+  "does not generate subdomain wildcards with paths"() {
+    const input: HumanWritable.Config = {
+      customLeechblockAllowPatterns: `
+        foo.com/some/page
+      `,
+    }
+    const expected = ["*.foo.com", "foo.com/some/page"]
+    expect(
+      parseConfig(input).leechblockAllowPatterns,
+      equals,
+      expected,
+    )
+  },
 })
 
 function isAnything() {
@@ -490,3 +546,7 @@ const hasProperties = curry((expected: any, actual: any) => {
   }
   return true
 }, "hasProperties")
+
+function includes<T>(needle: T, haystack: T[]): boolean {
+  return haystack.includes(needle)
+}
