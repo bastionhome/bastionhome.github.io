@@ -45,6 +45,8 @@ export const config: HumanWritable.Config = {
     *.duckduckgo.com
     antfu.me
     bookmarkbeat.substack.com
+    bigpencil.net
+    github.com
   `,
   categories: [
     {
@@ -99,6 +101,7 @@ export const config: HumanWritable.Config = {
             https://react.dev
             https://mdxjs.com
             https://eslint.style
+            https://daisyui.com
             https://sqlite.org
             https://json.org
             https://jwt.io
