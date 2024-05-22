@@ -29,6 +29,7 @@ export const config: HumanWritable.Config = {
     youtube.com/playlist*
     youtube.com/results*
     youtube.com/watch*
+    youtube-nocookie.com
     dasichuanrestaurant.com
     doordash.com
     yelp.com
@@ -37,8 +38,6 @@ export const config: HumanWritable.Config = {
     sfcu.org
     etrade.com
     allrecipes.com
-    goatcounter.com
-    *.goatcounter.com
     google.com
     *.google.com
     duckduckgo.com
@@ -143,14 +142,6 @@ export const config: HumanWritable.Config = {
             supabase.com | https://supabase.com
             digitalocean.com | https://digitalocean.com
             https://hub.docker.com
-            https://adaptable.io
-            alwaysdata.com | https://www.alwaysdata.com/en/
-            https://www.argonaut.dev/
-            https://www.cyclic.sh/
-            https://domcloud.co/
-            https://www.koyeb.com/
-            https://www.northflank.com/
-            https://www.withcoherence.com/
           `,
         },
         {
