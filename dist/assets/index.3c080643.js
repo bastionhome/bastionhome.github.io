@@ -272,6 +272,7 @@
         My 2000's TV | https://my00stv.com/
       `},{title:"Languages and Linguistics",keywords:"languages linguistics",entries:`
         https://zompist.com
+        The Language Construction Kit | https://zompist.com/kit.html
         https://latecornishlittlebits.blogspot.com
         https://merriam-webster.com
         https://ipachart.com
