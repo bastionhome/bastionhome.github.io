@@ -520,6 +520,7 @@ export const config: HumanWritable.Config = {
       keywords: "languages linguistics",
       entries: `
         https://zompist.com
+        The Language Construction Kit | https://zompist.com/kit.html
         https://latecornishlittlebits.blogspot.com
         https://merriam-webster.com
         https://ipachart.com
