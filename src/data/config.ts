@@ -90,6 +90,9 @@ export const config: HumanWritable.Config = {
           entries: `
             NPM | https://npmjs.com node package manager javascript
             MDN | https://developer.mozilla.com network html css javascript js
+            https://nodejs.org
+            https://yarnpkg.com
+            https://pnpm.io
             https://eslint.org
             https://cssreference.io
             https://css-tricks.com
@@ -117,6 +120,7 @@ export const config: HumanWritable.Config = {
             https://codemirror.net
             https://eloquentjavascript.net
             https://uxdesign.cc
+            https://jsdelivr.com
           `,
         },
         {
@@ -142,6 +146,8 @@ export const config: HumanWritable.Config = {
             supabase.com | https://supabase.com
             digitalocean.com | https://digitalocean.com
             https://hub.docker.com
+            https://ipfs.tech
+            https://pinata.cloud
           `,
         },
         {
@@ -383,6 +389,7 @@ export const config: HumanWritable.Config = {
         https://flickr.com
         https://cliparts.co
         https://search.creativecommons.org/
+        https://openverse.org
         Wikimedia Commons | https://commons.wikimedia.org
         Pattern Monster SVGs | https://pattern.monster
         heropatterns.com SVGs | https://heropatterns.com
