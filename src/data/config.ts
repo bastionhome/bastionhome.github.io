@@ -124,6 +124,13 @@ export const config: HumanWritable.Config = {
           `,
         },
         {
+          title: "Package Repositories",
+          entries: `
+            https://rubygems.org
+            NPM | https://npmjs.com node package manager javascript
+          `,
+        },
+        {
           title: "Domain Registrars",
           entries: `
             https://namecheap.com
@@ -431,13 +438,35 @@ export const config: HumanWritable.Config = {
       `,
     },
     {
-      title: "Archives and Archiving",
+      title: "Archives, Archiving, and Cataloguing",
       keywords: "archives",
-      entries: `
-        https://archive.org
-        https://ghostarchive.org
-        https://versionmuseum.com
-      `,
+      subCategories: [
+        {
+          title: "Archives",
+          entries: `
+            https://archive.org
+            https://ghostarchive.org
+            https://versionmuseum.com  
+          `,
+        },
+        {
+          title: "Archiving Tools",
+          keywords: "archiving tools",
+          entries: `
+            Wayback Machine Downloader (ruby) | https://rubygems.org/gems/wayback_machine_downloader
+          `,
+        },
+        {
+          title: "Classification Systems",
+          keywords: "cataloging cataloguing classification systems",
+          entries: `
+            https://dewey.org
+            https://oclc.org
+            Universal Decimal Classification | https://udcc.org
+            UDC on Wikipedia | https://en.wikipedia.org/wiki/Universal_Decimal_Classification
+          `,
+        },
+      ],
     },
     {
       title: "Books",
