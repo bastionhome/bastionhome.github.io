@@ -89,7 +89,7 @@ export const config: HumanWritable.Config = {
           keywords: "web programming",
           entries: `
             NPM | https://npmjs.com node package manager javascript
-            MDN | https://developer.mozilla.com network html css javascript js
+            MDN | https://developer.mozilla.org network html css javascript js
             https://nodejs.org
             https://yarnpkg.com
             https://pnpm.io
