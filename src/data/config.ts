@@ -49,6 +49,18 @@ export const config: HumanWritable.Config = {
   `,
   categories: [
     {
+      title: "Ben's Projects",
+      entries: `
+        https://waywardweb.org
+        Process to Processes | https://benchristel.github.io/process-to-processes
+        Ben's Guide to Software Development | https://bensguide.substack.com
+        Culture Machine | https://benchristel.github.io/tv
+        Recipes | https://benchristel.github.io/recipes
+        Meditation Timer | https://benchristel.github.io/meditation
+        mdsite | https://benchristel.github.io/mdsite
+      `,
+    },
+    {
       title: "Software Development",
       keywords: "software development",
       subCategories: [
@@ -332,7 +344,7 @@ export const config: HumanWritable.Config = {
           entries: `
             http://celestialheavens.com
             https://maps4heroes.com
-            https://heroesofmightandmagic.com
+            heroesofmightandmagic.com | http://www.heroesofmightandmagic.com
             https://mightandmagic.fandom.com
             https://heroescommunity.com
           `,
