@@ -58,6 +58,7 @@ export const config: HumanWritable.Config = {
         Recipes | https://benchristel.github.io/recipes
         Meditation Timer | https://benchristel.github.io/meditation
         mdsite | https://benchristel.github.io/mdsite
+        wwwebring | https://www.npmjs.com/package/wwwebring
       `,
     },
     {
@@ -452,6 +453,9 @@ export const config: HumanWritable.Config = {
     {
       title: "Archives, Archiving, and Cataloguing",
       keywords: "archives",
+      entries: `
+        wiki.archiveteam.org | https://wiki.archiveteam.org/index.php/Main_Page
+      `,
       subCategories: [
         {
           title: "Archives",

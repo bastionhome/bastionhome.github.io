@@ -58,6 +58,10 @@
         text-shadow: 0 0 3px #000, 0 0 10px #0008;
       }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/wwwebring/dist/themes/default.css"
+    />
   </head>
   <body>
     <code><pre id="test-results"></pre></code>
@@ -67,6 +71,20 @@
           <h1>Bastion</h1>
         </div>
         <div id="preact-root"></div>
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/wwwebring@0.0.2"
+        ></script>
+        <div
+          style="
+            display: table;
+            margin-inline: auto;
+            margin-block: 2em;
+          "
+          data-wwwebring="https://waywardweb.org/ring.json"
+          data-wwwebring-you-are-here="https://bastionhome.github.io"
+          data-wwwebring-theme="default"
+        ></div>
       </div>
     </div>
     <script type="module" src="src/index.tsx"></script>
