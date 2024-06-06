@@ -52,6 +52,7 @@
         Recipes | https://benchristel.github.io/recipes
         Meditation Timer | https://benchristel.github.io/meditation
         mdsite | https://benchristel.github.io/mdsite
+        wwwebring | https://www.npmjs.com/package/wwwebring
       `},{title:"Software Development",keywords:"software development",subCategories:[{title:"Engineering",keywords:"engineering",entries:`
             The Art of Unix Programming | http://www.catb.org/esr/writings/taoup/html/ Eric Raymond
             https://buildingbeauty.org Christopher Alexander Greg Bryant
@@ -249,7 +250,9 @@
         eTrade | https://etrade.com
         Capital One | https://capitalone.com
         Venmo | https://venmo.com
-      `},{title:"Archives, Archiving, and Cataloguing",keywords:"archives",subCategories:[{title:"Archives",entries:`
+      `},{title:"Archives, Archiving, and Cataloguing",keywords:"archives",entries:`
+        wiki.archiveteam.org | https://wiki.archiveteam.org/index.php/Main_Page
+      `,subCategories:[{title:"Archives",entries:`
             https://archive.org
             https://ghostarchive.org
             https://versionmuseum.com  
