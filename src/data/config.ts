@@ -3,7 +3,7 @@ import {HumanWritable} from "./config-types"
 export const config: HumanWritable.Config = {
   menu: `
     TV      | https://benchristel.github.io/tv
-    Recipes | https://benchristel.github.io/recipes
+    Portal  | https://benchristel.com/portal.html
     Book    | https://benchristel.github.io/process-to-processes
     Guide   | https://bensguide.substack.com
     Zen     | https://benchristel.github.io/meditation
@@ -48,19 +48,6 @@ export const config: HumanWritable.Config = {
     github.com
   `,
   categories: [
-    {
-      title: "Ben's Projects",
-      entries: `
-        https://waywardweb.org
-        Process to Processes | https://benchristel.github.io/process-to-processes
-        Ben's Guide to Software Development | https://bensguide.substack.com
-        Culture Machine | https://benchristel.github.io/tv
-        Recipes | https://benchristel.github.io/recipes
-        Meditation Timer | https://benchristel.github.io/meditation
-        mdsite | https://benchristel.github.io/mdsite
-        wwwebring | https://www.npmjs.com/package/wwwebring
-      `,
-    },
     {
       title: "Software Development",
       keywords: "software development",
